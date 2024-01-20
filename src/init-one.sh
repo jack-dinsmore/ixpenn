@@ -1,11 +1,22 @@
 #!/bin/bash
 set -e
 
-source filenames.sh
+source src/filenames.sh
+mkdir -p $DATA_FOLDER"recon"
+
+if [ -z "${USE_MOM}" ]; then 
+    mkdir -p $DATA_FOLDER"event_mom"
+else
+    mkdir -p $DATA_FOLDER"event_nn"
+fi
 
 ftcopy $DATA_FOLDER"$RAW_FILENAME"'.fits[EVENTS][STATUS2 == b0x0000000000x00x]' $DATA_FOLDER"$FILENAME"'.fits' clobber=True
 
-ixpeevtrecon infile=$DATA_FOLDER"$FILENAME".fits outfile=$DATA_FOLDER$FILENAME'_recon.fits' clobber=True writeTracks=True 1> /dev/null 
+if [ -z "${USE_MOM}" ]; then
+    ixpeevtrecon infile=$DATA_FOLDER"$FILENAME".fits outfile=$DATA_FOLDER$FILENAME'_recon.fits' clobber=True
+else
+    ixpeevtrecon infile=$DATA_FOLDER"$FILENAME".fits outfile=$DATA_FOLDER$FILENAME'_recon.fits' clobber=True writeTracks=True
+fi
 
 # Add some missing header values.
 fdump $DATA_FOLDER"$RAW_FILENAME".fits[1] tmp.lis - 1 prdata=yes showcol=no

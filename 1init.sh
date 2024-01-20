@@ -7,7 +7,7 @@
 #SBATCH -t 08:00:00
 
 source source_select.sh
-source $PREFIX"init/mlixpe.sh"
+source $PREFIX"src/mlixpe.sh"
 source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 export HEADASNOQUERY=

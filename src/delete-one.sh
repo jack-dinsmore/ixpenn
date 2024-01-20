@@ -21,8 +21,8 @@ yes | ftlist $DATA_FOLDER"$RAW_FILENAME".fits["EVENTS"] outfile=STDOUT ROWS=0 | 
 ########
 
 # Remove the hefty columns from the _recon files
-python3 -u recon_trim.py $DATA_FOLDER"$FILENAME"_recon.fits
-python3 -u hack-fits.py $DATA_FOLDER"$FILENAME"'_recon.fits'
+python3 -u src/recon_trim.py $DATA_FOLDER"$FILENAME"_recon.fits
+python3 -u src/hack-fits.py $DATA_FOLDER"$FILENAME"'_recon.fits'
 
 ########
 

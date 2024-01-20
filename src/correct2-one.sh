@@ -11,7 +11,6 @@ ixpeaspcorr infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_adj_w_j2000.fits clob
 
 #######
 
-mkdir -p $FINAL_FOLDER
 ftcopy $DATA_FOLDER"$FILENAME"_recon_nn_stokes_adj_w_j2000.fits'[EVENTS][col TRG_ID; TIME; STATUS; STATUS2; PI; W_MOM; W_NN; X; Y; Q; U]' $FINAL_FOLDER/"$FINAL_FILENAME".fits clobber=True
 
 #######

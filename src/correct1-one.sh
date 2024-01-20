@@ -28,7 +28,7 @@ source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 ixpegaincorrpkmap infile=$DATA_FOLDER"$FILENAME"_recon_gain_corr.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits clobber=True pkgainfile=CALDB hvgainfile=CALDB
 
-python3 test.py $DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits
+python3 src/test.py $DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits
 
 export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
 source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
@@ -38,7 +38,7 @@ source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 if [ -z "${USE_MOM}" ]; then
     cp $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $DATA_FOLDER"$FILENAME"_recon_nn.fits
 else
-    python3 write.py $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $NN_FILE $DATA_FOLDER"$FILENAME"_recon_nn.fits
+    python3 src/write.py $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $NN_FILE $DATA_FOLDER"$FILENAME"_recon_nn.fits
 fi
 
 #######

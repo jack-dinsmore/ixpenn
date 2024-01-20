@@ -1,6 +1,51 @@
+#!/bin/bash
+
+# Settings for all the IXPE sources and their file names
+
+# 1. Choose a name YOUR_SOURCE_NAME and make a new block beginning with YOUR_SOURCE_NAME)
+# 2. Fill out the following fields
+#   - OBS: Observation ID of the .fits file within event_l1.
+#   - SETNUM: the observation set ID (the name of the directory containing the auxil, hk, event_l1, etc. directories). Usually the same as $OBS unless you used split.sh to change $OBS, or if the observation came in multiple chunks.
+#   - VERSION: the vXX version number of these event_l1 fits files. Zero if you used split.sh.
+#   - ATTNUM: the version of the *_att_* files in the hk directory (usually 01)
+#   - PAYNUM1: the version of the payload file for detector 1. The payload files begin with *_pay_132X_vYY*, where X is the detector number and YY is the version number.
+#   - PAYNUM2 and PAYNUM3: the same for detectors 2 and 3.
+
+# Make sure you end your code block in a double semicolon.
+
 export PREFIX="/home/groups/rwr/ixpenn/"
 
 case $SOURCE in 
+
+    gcf1)
+        export OBS='02007901'
+        export SETNUM='02007999'
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        ;;
+
+    gcf2)
+        export OBS='02007902'
+        export SETNUM='02007999'
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        ;;
+
+    gcf3)
+        export OBS='02007903'
+        export SETNUM='02007999'
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        ;;
 
     gx301)
         export OBS='01002601'
