@@ -9,8 +9,9 @@ Jack Dinsmore maintains this directory on Sherlock.
 # Instructions
 
 0. *Preparation*
-    - Download all available files from the IXPE database for your observation to `/home/groups/rwr/ixpenn/data/` by running the `wget` script IXPE gives you in that directory. (Level 2 files are not necessary but since they contain the official Moments-processed data you might want them.)
-        - If the downloaded directory contains the `event_l1`, `auxil`, etc. files, then move them into a new directory in that location with the same name as the downloaded directory. In other words, your file structure should be `/home/groups/rwr/ixpenn/data/SEQUENCE_NUMBER/OBSERVATION_NUMBER/event_l1`. If your file structure already looks like this, do nothing.
+    - Download all available files from the IXPE database for your observation to `/home/groups/rwr/ixpenn/data/` by running the `wget` script IXPE gives you in that directory. (Level 2 files are not necessary but since they contain the official Moments-processed data you might want them. I'm not sure if `auxil` are necessary either.)
+    - Unzip the files in the `event_l1` and `hk` directories with `gunzip *`.
+    - If each fits file in `event_l1` is more than 2 million counts (check this with the HEASarc `ftlist` tool) then split them into 1-2 million count chunks using `split.sh`.
     - In the same directory as `event_l1`, create an empty folder named `recon` (`mkdir recon`).
     - Update `source_select.sh` with the metadata for this source. That file contains instructions on how to do this.
 1. *Reconstruct the event data* Run `1init.sh` using the following command, where `YOUR_SOURCE_NAME` is replaced with the name you chose to use in `source_select.sh`. This might take an hour or so.
@@ -28,4 +29,4 @@ sbatch --export=SOURCE=YOUR_SOURCE_NAME 1init.sh
 
 6. *Check the logs for errors* Run `error_check.sh LOG_FILES` at any point, replacing `LOG_FILES` with the log files you'd like to check for errors. This can be done manually of course but if the logs are long it can be easy to miss the messages.
 
-7. If you need to simulate the data set, `sim.sh` helps with that but you need an installation of `gpdsw`.
+If you need to simulate the data set, `sim.sh` helps with that but you need an installation of `gpdsw`.

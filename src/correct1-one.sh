@@ -35,8 +35,6 @@ source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 #######
 
-NN_FILE=$PREFIX'data_'$DATA_SUBDIR'_'$SEQ'_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
-
 if [ -z "${USE_MOM}" ]; then
     cp $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $DATA_FOLDER"$FILENAME"_recon_nn.fits
 else
