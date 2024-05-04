@@ -1,2 +1,4 @@
-/data
+data/*
+!data/_
 /logs
+*.log

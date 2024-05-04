@@ -5,10 +5,10 @@ source $PREFIX"src/mlixpe.sh"
 source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 export DET='1'
-source det_delete.sh
+source src/deleteione.sh
 
 export DET='2'
-source det_delete.sh
+source src/delete-one.sh
 
 export DET='3'
-source det_delete.sh
+source src/delete-one.sh

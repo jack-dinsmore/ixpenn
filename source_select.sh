@@ -13,7 +13,7 @@
 
 # Make sure you end your code block in a double semicolon.
 
-export PREFIX="/home/groups/rwr/ixpenn/"
+export PREFIX="$PWD/"
 
 case $SOURCE in 
 

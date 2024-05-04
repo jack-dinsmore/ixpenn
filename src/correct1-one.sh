@@ -1,4 +1,4 @@
-source filenames.sh
+source src/filenames.sh
 
 case $DET in 
     1)
@@ -15,7 +15,7 @@ case $DET in
         ;;
 esac
 
-ixpegaincorrtemp infile=$DATA_FOLDER"$FILENAME"_recon.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain.fits hkfile="$DATA_FOLDER"hk/ixpe"$SETNUM"_all_pay_132"$DET"_v"$PAYNUM".fits clobber=True
+ixpegaincorrtemp infile=$DATA_FOLDER"$FILENAME"_recon.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain.fits hkfile="$DATA_FOLDER"hk/ixpe"$OBS"_all_pay_132"$DET"_v"$PAYNUM".fits clobber=True
 
 #######
 
