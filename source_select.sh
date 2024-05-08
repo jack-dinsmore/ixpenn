@@ -13,6 +13,15 @@
 
 # Make sure you end your code block in a double semicolon.
 
+export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
+export CALDB=/home/groups/rwr/jtd/caldb
+export CC=/share/software/user/open/gcc/9.1.0/bin/gcc
+export CXX=/share/software/user/open/gcc/9.1.0/bin/g++
+export FC=/share/software/user/open/gcc/9.1.0/bin/gfortran
+export PERL=/share/software/user/open/perl/5.26.0/bin/perl
+export PYTHON=/share/software/user/open/python/3.9.0/bin/python3
+unset CFLAGS CXXFLAGS FFLAGS LDFLAGS
+
 export PREFIX="$PWD/"
 
 case $SOURCE in 
