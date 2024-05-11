@@ -21,6 +21,10 @@ export FC=/share/software/user/open/gcc/9.1.0/bin/gfortran
 export PERL=/share/software/user/open/perl/5.26.0/bin/perl
 export PYTHON=/share/software/user/open/python/3.9.0/bin/python3
 unset CFLAGS CXXFLAGS FFLAGS LDFLAGS
+<<<<<<< HEAD
+=======
+
+>>>>>>> d21c059a467992ce9d5f9d9149b4fba327e2759d
 export PREFIX="$PWD/"
 
 case $SOURCE in 
