@@ -13,9 +13,37 @@
 
 # Make sure you end your code block in a double semicolon.
 
+export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
+export CALDB=/home/groups/rwr/jtd/caldb
+export CC=/share/software/user/open/gcc/9.1.0/bin/gcc
+export CXX=/share/software/user/open/gcc/9.1.0/bin/g++
+export FC=/share/software/user/open/gcc/9.1.0/bin/gfortran
+export PERL=/share/software/user/open/perl/5.26.0/bin/perl
+export PYTHON=/share/software/user/open/python/3.9.0/bin/python3
+unset CFLAGS CXXFLAGS FFLAGS LDFLAGS
 export PREFIX="$PWD/"
 
 case $SOURCE in 
+
+    b05401)
+	export OBS='02001201'
+	export SETNUM='02001299'
+        export VERSION='03'
+        export ATTNUM='03'
+        export PAYNUM1='03'
+        export PAYNUM2='03'
+        export PAYNUM3='03'
+        ;;
+
+    b05402)
+	export OBS='02001202'
+        export SETNUM='02001299'
+        export VERSION='02'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        ;;
 
     gcf1)
         export OBS='02007901'
