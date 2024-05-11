@@ -1,5 +1,23 @@
 export DATA_FOLDER=$PREFIX"data/"$SETNUM"/"
+if [ -z ${VERSION+x} ]; then
+    # Version variable is unset
+    case $DET in 
+        1)
+            VERSION=$VERSION1
+            ;;
+        2)
+            VERSION=$VERSION2
+            ;;
+        3)
+            VERSION=$VERSION3
+            ;;
+   esac
+else
+    echo
+    # Version variable is set
+fi
 export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$VERSION
+echo Using file $RAW_FILENAME
 export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$VERSION # recon
 export NN_FOLDER=$DATA_FOLDER'recon/'$SOURCE'-det'$DET/
 export NN_FILE='/home/groups/rwr/jtd/IXPEML/_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
