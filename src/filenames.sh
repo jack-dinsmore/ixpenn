@@ -1,10 +1,8 @@
 export DATA_FOLDER=$PREFIX"data/"$SETNUM"/"
-echo $DET
 if [ -z ${VERSION+x} ]; then
     # Version variable is unset
     case $DET in
         1)
-        echo detector_1
             FILE_VERSION=$VERSION1
             ;;
         2)
@@ -18,7 +16,6 @@ else
     FILE_VERSION=$VERSION
     # Version variable is set
 fi
-echo Version $FILE_VERSION
 export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
 export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION # recon

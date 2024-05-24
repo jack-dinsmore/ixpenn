@@ -4,7 +4,24 @@ A repository to contain the Romani group's IXPE data processed with Neural Nets 
 
 A. Lawrence Peirson is the original author of the NN software
 
-Jack Dinsmore maintains this directory on Sherlock.
+Jack Dinsmore created the level1 to level2 pipeline and maintains this directory on Sherlock.
+
+# Installation
+
+Thanks to Peter Lindholm for helping to bug test the installation process. This software is compatible with HEASoft version 6.32.1. Below are the installation instructions for the pipeline
+
+1. (Sherlock users skip this step) Many python modules are listed in src/mlnn.sh and src/mlixpe.sh. If you have a computing cluster, replace the lines in these files with the appropriate loading statements for your cluster. If not, pip install each module and delete the text in the files so they are blank.
+
+2. Pip install `scikit-learn` with version 0.24.2, `multiprocess` with version 0.70.12.2, and `setuptools` with version 39.2.0. Make sure to do this in the same python environment as the one that contains the python modules you installed in step one. If you skipped step one, just run src/mlnn.sh to load the environment.
+
+3. Install `apex` via git by running the following in your home directory
+```bash
+git clone https://github.com/NVIDIA/apex.git
+git checkout 5ba7af18f0cdb228b00ee7110236dc7c1b23fc35
+pip install -v --disable-pip-version-check --no-build-isolation --no-cache-dir ./
+```
+Note that `pip install apex` does not work for `apex`; the PyPI version of `apex` is an unrelated module.
+
 
 # Instructions
 

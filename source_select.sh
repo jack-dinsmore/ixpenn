@@ -13,6 +13,7 @@
 
 # Make sure you end your code block in a double semicolon.
 
+#export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
 export HEADAS=/home/groups/rwr/jtd/heasoft-6.33.2/x86_64-pc-linux-gnu-libc2.17
 export CALDB=/home/groups/rwr/jtd/caldb
 export CC=/share/software/user/open/gcc/9.1.0/bin/gcc
