@@ -1,28 +1,31 @@
 export DATA_FOLDER=$PREFIX"data/"$SETNUM"/"
+echo $DET
 if [ -z ${VERSION+x} ]; then
     # Version variable is unset
-    case $DET in 
+    case $DET in
         1)
-            VERSION=$VERSION1
+        echo detector_1
+            FILE_VERSION=$VERSION1
             ;;
         2)
-            VERSION=$VERSION2
+            FILE_VERSION=$VERSION2
             ;;
         3)
-            VERSION=$VERSION3
+            FILE_VERSION=$VERSION3
             ;;
    esac
 else
-    echo
+    FILE_VERSION=$VERSION
     # Version variable is set
 fi
-export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$VERSION
+echo Version $FILE_VERSION
+export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
-export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$VERSION # recon
+export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION # recon
 export NN_FOLDER=$DATA_FOLDER'recon/'$SOURCE'-det'$DET/
 export NN_FILE='/home/groups/rwr/jtd/IXPEML/_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
 
-if [ -z "${USE_MOM}" ]; then 
+if [ -z "${USE_MOM}" ]; then
     export FINAL_FOLDER=$DATA_FOLDER"event_mom"
     export FINAL_FILENAME="ixpe"$OBS"_det"$DET"_l2"
     echo "Using Moments"
