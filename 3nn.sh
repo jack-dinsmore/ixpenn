@@ -15,7 +15,7 @@
 
 source source_select.sh
 source $PREFIX"src/mlnn.sh"
-cd 
+cd /home/groups/rwr/jtd/IXPEML
 
 export DET='1'
 source $PREFIX"src/filenames.sh"
