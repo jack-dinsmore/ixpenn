@@ -1,4 +1,9 @@
 #!/bin/bash
+#SBATCH -o logs/delete-%j.log
+#SBATCH --job-name=delete
+#SBATCH --time=2:00:00
+#SBATCH --ntasks=1
+#SBATCH --mem=8G
 
 source source_select.sh
 source $PREFIX"src/mlixpe.sh"

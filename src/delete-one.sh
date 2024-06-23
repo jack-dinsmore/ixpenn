@@ -1,5 +1,7 @@
 ########
 
+source src/filenames.sh
+
 # Replace the status2 column
 fdelcol $DATA_FOLDER"$FILENAME"_recon.fits[EVENTS] STATUS2 no yes
 faddcol $DATA_FOLDER"$FILENAME"_recon.fits[EVENTS] $DATA_FOLDER"$FILENAME".fits[EVENTS] STATUS2
