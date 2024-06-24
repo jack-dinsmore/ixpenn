@@ -45,7 +45,8 @@ with fits.open(out_file, mode="update") as hdul:
     hdul[1].data["PI"] = pi
     hdul[1].data["ABSX"] = abs_x
     hdul[1].data["ABSY"] = abs_y
-    hdul[1].data["STATUS2"] = flags 
+    if "STATUS2" in hdul[1].columns.names:
+        hdul[1].data["STATUS2"] = flags 
 
     # Add new column
     columns.add_col(fits.Column(array=p_tail, name="P_TAIL", format="1E"))

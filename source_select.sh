@@ -91,8 +91,9 @@ case $SOURCE in
         ;;
 
     gx301mom)
+        export USE_MOM="use"
         export OBS='01002601'
-        export SETNUM=$OBS
+        export SETNUM="m1002601"
         export VERSION='02'
         export ATTNUM='01'
         export PAYNUM1='01'
