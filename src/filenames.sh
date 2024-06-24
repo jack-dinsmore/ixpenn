@@ -19,8 +19,9 @@ fi
 export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
 export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION # recon
+export NN_PREPATH=$(python3 src/get_nn_path.py)
 export NN_FOLDER=$DATA_FOLDER'recon/'$SOURCE'-det'$DET/
-export NN_FILE='/home/groups/rwr/jtd/IXPEML/_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
+export NN_FILE='/home/groups/rwr/jtd/IXPEML/'$NN_PREPATH'_data_'$SETNUM'_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
 
 if [ -z "${USE_MOM}" ]; then
     export FINAL_FOLDER=$DATA_FOLDER"event_nn"

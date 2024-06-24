@@ -1,5 +1,7 @@
 source src/filenames.sh
 
+echo $NN_FILE
+
 case $DET in 
     1)
         PAYNUM=$PAYNUM1
@@ -23,15 +25,15 @@ ixpechrgcorr infile=$DATA_FOLDER"$FILENAME"_recon_gain.fits outfile=$DATA_FOLDER
 
 #######
 
-export HEADAS=/home/groups/rwr/alpv95/tracksml/moments/heasoft-6.30.1/x86_64-pc-linux-gnu-libc2.17
-source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
+##export HEADAS=/home/groups/rwr/alpv95/tracksml/moments/heasoft-6.30.1/x86_64-pc-linux-gnu-libc2.17
+##source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 ixpegaincorrpkmap infile=$DATA_FOLDER"$FILENAME"_recon_gain_corr.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits clobber=True pkgainfile=CALDB hvgainfile=CALDB
 
 python3 src/test.py $DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits
 
-export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
-source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
+##export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
+##source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 
 #######
 
@@ -51,7 +53,7 @@ ixpecalcstokes infile=$DATA_FOLDER"$FILENAME"_recon_nn.fits outfile=$DATA_FOLDER
 
 if [ -z "${USE_MOM}" ]; then
     # NN
-    ixpeadjmod infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes.fits outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_adj.fits clobber=True spmodfile="$PREFIX"caldb/spmod/ixpe_d"$DET"_20170101_spmod_nn.fits
+    ixpeadjmod infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes.fits outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_adj.fits clobber=True spmodfile=/home/groups/rwr/jtd/IXPEML/caldb/spmod/ixpe_d"$DET"_20170101_spmod_nn.fits
 else
     # MOM
     ixpeadjmod infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes.fits outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_adj.fits clobber=True
