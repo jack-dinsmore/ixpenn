@@ -36,6 +36,7 @@ case $SOURCE in
         export PAYNUM1='03'
         export PAYNUM2='03'
         export PAYNUM3='03'
+        export PPGNUM='01'
         ;;
 
     b05402)
@@ -48,6 +49,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gcf1)
@@ -58,6 +60,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gcf2)
@@ -68,6 +71,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gcf3)
@@ -78,6 +82,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gx301)
@@ -88,6 +93,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gx301mom)
@@ -99,6 +105,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     4u)
@@ -109,6 +116,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     gx99)
@@ -119,6 +127,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     lmc)
@@ -128,6 +137,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     cirx1)
@@ -138,6 +148,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     scox1)
@@ -148,6 +159,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     sim)
@@ -157,6 +169,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab1)
@@ -167,6 +180,7 @@ case $SOURCE in
         export PAYNUM1='09'
         export PAYNUM2='10'
         export PAYNUM3='08'
+        export PPGNUM='01'
         ;;
     
     crab2)
@@ -177,6 +191,7 @@ case $SOURCE in
         export PAYNUM1='09'
         export PAYNUM2='10'
         export PAYNUM3='08'
+        export PPGNUM='01'
         ;;
 
     crab3)
@@ -187,6 +202,7 @@ case $SOURCE in
         export PAYNUM1='09'
         export PAYNUM2='10'
         export PAYNUM3='08'
+        export PPGNUM='01'
         ;;
 
 
@@ -198,6 +214,7 @@ case $SOURCE in
         export PAYNUM1='08'
         export PAYNUM2='09'
         export PAYNUM3='07'
+        export PPGNUM='01'
         ;;
     
     crab5)
@@ -208,6 +225,7 @@ case $SOURCE in
         export PAYNUM1='08'
         export PAYNUM2='09'
         export PAYNUM3='07'
+        export PPGNUM='01'
         ;;
 
     crab6)
@@ -218,6 +236,7 @@ case $SOURCE in
         export PAYNUM1='08'
         export PAYNUM2='09'
         export PAYNUM3='07'
+        export PPGNUM='01'
         ;;
 
     crab7)
@@ -228,6 +247,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab8)
@@ -238,6 +258,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab9)
@@ -248,6 +269,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab10)
@@ -258,6 +280,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab11)
@@ -268,6 +291,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab12)
@@ -278,6 +302,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab13)
@@ -288,6 +313,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     crab14)
@@ -298,6 +324,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
     
     crab15)
@@ -308,6 +335,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
+        export PPGNUM='01'
         ;;
 
     *)

@@ -21,7 +21,7 @@ def display_columns(obs_id):
     with fits.open(path) as hdul:
         print(hdul[1].data.columns)
 
-def plot_hist(obs_id, col, det=1):
+def plot_hist(obs_id, col, det=2):
     path = get_data_path(obs_id, det=det, nn=True)
     with fits.open(path) as hdul:
         nn_data = hdul[1].data[col]
@@ -36,9 +36,9 @@ def plot_hist(obs_id, col, det=1):
 
     fig, ax = plt.subplots()
     bins = np.linspace(np.nanpercentile(nn_data, 1), np.nanpercentile(nn_data, 99), 51)
-    ax.hist(nn_data, bins=bins, color="C0", histtype="step", label="NN")
-    ax.hist(our_mom_data, bins=bins, color="C1", histtype="step", label="Our Mom")
-    ax.hist(ixpe_mom_data, bins=bins, color="C1", histtype="step", label="IXPE L2 (Mom)")
+    ax.hist(nn_data, bins=bins, color="C0", lw=3, histtype="step", label="NN")
+    ax.hist(our_mom_data, bins=bins, color="C1", lw=2, histtype="step", label="Our Mom")
+    ax.hist(ixpe_mom_data, bins=bins, color="C2", lw=1, histtype="step", label="IXPE L2 (Mom)")
     ax.legend()
     ax.set_xlabel(col)
     ax.set_ylabel("Counts")
@@ -50,4 +50,5 @@ if __name__ == "__main__":
     display_columns(obs_id)
     plot_hist(obs_id, "X")
     plot_hist(obs_id, "Y")
+    plot_hist(obs_id, "W_MOM")
     plot_hist(obs_id, "PI")
