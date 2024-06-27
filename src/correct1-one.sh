@@ -25,7 +25,7 @@ ixpechrgcorr infile=$DATA_FOLDER"$FILENAME"_recon_gain.fits outfile=$DATA_FOLDER
 
 #######
 
-ixpegaincorrpkmap infile=$DATA_FOLDER"$FILENAME"_recon_gain_corr.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits clobber=True pkgainfile="/home/groups/rwr/ixpenn/data/m1002601/auxil/ixpe"$OBS"_det"$DET"_ppg1_v"$PPGNUM".fits" hvgainfile=CALDB logfile=NONE
+ixpegaincorrpkmap infile=$DATA_FOLDER"$FILENAME"_recon_gain_corr.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits clobber=True pkgainfile=$DATA_FOLDER"auxil/ixpe"$OBS"_det"$DET"_ppg1_v"$PPGNUM".fits" hvgainfile=CALDB logfile=NONE
 
 python3 src/test.py $DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits
 
