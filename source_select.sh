@@ -60,7 +60,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     gcf2)
@@ -82,7 +82,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     gx301)
