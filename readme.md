@@ -35,7 +35,7 @@ Note that `pip install apex` does not work for `apex`; the PyPI version of `apex
 ```
 sbatch --export=SOURCE=YOUR_SOURCE_NAME 1init.sh
 ```
-If you are only interested in doing moments processing, pass the `USE_MOM` flag using `--export=SOURCE=YOUR_SOURCE_NAME,USE_MOM` and skip to step 4.
+If you are only interested in doing moments processing, pass the `USE_MOM` flag using `--export=SOURCE=YOUR_SOURCE_NAME,USE_MOM=a` and skip to step 4.
 
 2. *Convert the hexagonal grid to square* Run `2hex.sh` using the same command, with `1init.sh` replaced with `2hex.sh`. This may take a little under an hour.
 
