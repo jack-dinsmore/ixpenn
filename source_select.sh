@@ -51,6 +51,19 @@ case $SOURCE in
         export PAYNUM3='01'
         export PPGNUM='01'
         ;;
+	
+    b05403)
+	export OBS='02008801'
+        export SETNUM='02008801'
+        export VERSION1='01'
+        export VERSION2='01'
+        export VERSION3='01'
+        export ATTNUM='03'
+        export PAYNUM1='02'
+        export PAYNUM2='02'
+        export PAYNUM3='02'
+        export PPGNUM='03'
+        ;;
 
     gcf1)
         export OBS='02007901'
@@ -60,7 +73,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     gcf2)
@@ -82,7 +95,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     gx301)
