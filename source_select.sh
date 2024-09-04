@@ -186,8 +186,9 @@ case $SOURCE in
         ;;
 
     crab1)
-        export OBS='01001010'
-        export SETNUM='01001001'
+        export CHUNK='01001010'
+        export OBS='01001001'
+        export SETNUM='01001099'
         export VERSION='00'
         export ATTNUM='12'
         export PAYNUM1='09'
@@ -197,7 +198,8 @@ case $SOURCE in
         ;;
     
     crab2)
-        export OBS='01001020'
+        export CHUNK='01001020'
+        export OBS='01001001'
         export SETNUM='01001001'
         export VERSION='00'
         export ATTNUM='12'
@@ -208,7 +210,8 @@ case $SOURCE in
         ;;
 
     crab3)
-        export OBS='01001030'
+        export CHUNK='01001030'
+        export OBS='01001001'
         export SETNUM='01001001'
         export VERSION='00'
         export ATTNUM='12'
@@ -220,7 +223,8 @@ case $SOURCE in
 
 
     crab4)
-        export OBS='01001040'
+        export CHUNK='01001040'
+        export OBS='01001002'
         export SETNUM='01001002'
         export VERSION='00'
         export ATTNUM='11'
@@ -231,7 +235,8 @@ case $SOURCE in
         ;;
     
     crab5)
-        export OBS='01001050'
+        export CHUNK='01001050'
+        export OBS='01001002'
         export VERSION='00'
         export SETNUM='01001002'
         export ATTNUM='11'
@@ -242,7 +247,8 @@ case $SOURCE in
         ;;
 
     crab6)
-        export OBS='01001060'
+        export CHUNK='01001060'
+        export OBS='01001002'
         export VERSION='00'
         export SETNUM='01001002'
         export ATTNUM='11'
@@ -253,7 +259,8 @@ case $SOURCE in
         ;;
 
     crab7)
-        export OBS='02001010'
+        export CHUNK='02001010'
+        export OBS='02001001'
         export VERSION='00'
         export ATTNUM='01'
         export SETNUM='02001001'
@@ -264,7 +271,8 @@ case $SOURCE in
         ;;
 
     crab8)
-        export OBS='02001020'
+        export CHUNK='02001020'
+        export OBS='02001001'
         export VERSION='00'
         export SETNUM='02001001'
         export ATTNUM='01'
@@ -275,7 +283,8 @@ case $SOURCE in
         ;;
 
     crab9)
-        export OBS='02001030'
+        export CHUNK='02001030'
+        export OBS='02001001'
         export SETNUM='02001001'
         export VERSION='00'
         export ATTNUM='01'
@@ -286,7 +295,8 @@ case $SOURCE in
         ;;
 
     crab10)
-        export OBS='02001040'
+        export CHUNK='02001040'
+        export OBS='02001002'
         export VERSION='00'
         export SETNUM='02001001'
         export ATTNUM='01'
@@ -297,7 +307,9 @@ case $SOURCE in
         ;;
 
     crab11)
-        export OBS='02001050'
+        export CHUNK='02001050'
+        export OBS='02001002'
+        export VERSION='00'
         export VERSION='00'
         export SETNUM='02001001'
         export ATTNUM='01'
@@ -308,7 +320,9 @@ case $SOURCE in
         ;;
 
     crab12)
-        export OBS='02001060'
+        export CHUNK='02001060'
+        export OBS='02001002'
+        export VERSION='00'
         export VERSION='00'
         export SETNUM='02001001'
         export ATTNUM='01'
@@ -320,6 +334,7 @@ case $SOURCE in
 
     crab13)
         export OBS='02006010'
+        export VERSION='00'
         export VERSION='00'
         export SETNUM='02006001'
         export ATTNUM='01'
@@ -357,4 +372,6 @@ case $SOURCE in
 
 esac
 
-
+if [ -z "$CHUNK" ]; then
+    export CHUNK=$SETNUM
+fi

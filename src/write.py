@@ -42,7 +42,7 @@ with fits.open(out_file, mode="update") as hdul:
     
     # Update old columns
     hdul[1].data["DETPHI2"] = nn_phi
-    hdul[1].data["PI"] = pi
+    #hdul[1].data["PI"] = pi # Do not copy NN energies over
     hdul[1].data["ABSX"] = abs_x
     hdul[1].data["ABSY"] = abs_y
     if "STATUS2" in hdul[1].columns.names:

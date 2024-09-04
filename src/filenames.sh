@@ -16,22 +16,22 @@ else
     FILE_VERSION=$VERSION
     # Version variable is set
 fi
-export RAW_FILENAME="event_l1/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION
+export RAW_FILENAME="event_l1/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
-export FILENAME="recon/ixpe"$OBS"_det"$DET"_evt1_v"$FILE_VERSION # recon
+export FILENAME="recon/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION # recon
 export NN_PREPATH=$(python3 src/get_nn_path.py)
 export NN_FOLDER=$DATA_FOLDER'recon/'$SOURCE'-det'$DET/
-export NN_FILE='/home/groups/rwr/jtd/IXPEML/'$NN_PREPATH'_data_'$SETNUM'_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
+export NN_FILE='/home/groups/rwr/jtd/IXPEML/'$NN_PREPATH'data_'$SETNUM'_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
 
 if [ -z "${USE_MOM}" ]; then
     export FINAL_FOLDER=$DATA_FOLDER"event_nn"
-    export FINAL_FILENAME="ixpe"$OBS"_det"$DET"_nn"
+    export FINAL_FILENAME="ixpe"$CHUNK"_det"$DET"_nn"
     echo "Using NN"
 else
     export FINAL_FOLDER=$DATA_FOLDER"event_mom"
-    export FINAL_FILENAME="ixpe"$OBS"_det"$DET"_l2"
+    export FINAL_FILENAME="ixpe"$CHUNK"_det"$DET"_l2"
     echo "Using Moments"
 fi
 
 date
-echo $SOURCE $OBS $DET
+echo $SOURCE $CHUNK $OBS $DET

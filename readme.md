@@ -28,7 +28,7 @@ Note that `pip install apex` does not work for `apex`; the PyPI version of `apex
 0. *Preparation*
     - Download all available files from the IXPE database for your observation to the `data/` directory by running the `wget` script IXPE gives you in that directory. (Level 2 files are not necessary but since they contain the official Moments-processed data you might want them. I'm not sure if `auxil` are necessary either.)
     - Unzip the files in the `event_l1` and `hk` directories with `gunzip *`.
-    - If each fits file in `event_l1` is more than 2 million counts (check this with the HEASarc `ftlist` tool) then split them into 1-2 million count chunks using `split.sh`.
+    - If each fits file in `event_l1` is more than 2 million counts (check this with the HEASarc `ftlist` tool) then split them into 1-2 million count chunks using `split.sh`. You should use "chunk" names that are distinct from the observation number or the set number, and this should be reflected in source_select.sh.
     - Update `source_select.sh` with the metadata for this source. That file contains instructions on how to do this.
 
 1. *Reconstruct the event data* Run `1init.sh` using the following command, where `YOUR_SOURCE_NAME` is replaced with the name you chose to use in `source_select.sh`. This might take an hour or so.
