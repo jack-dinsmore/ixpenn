@@ -19,6 +19,8 @@ with fits.open(nn_file) as hdul:
     p_tail = table["P_TAIL"]
     flag = table["FLAG"]
 
+    print(nn_phi.shape)
+
 pi = np.round((nn_energy - 0.020) / 0.040).astype(int)
 print([np.nanpercentile(pi, i) for i in range(0, 105, 10)])
 
@@ -41,6 +43,7 @@ with fits.open(out_file, mode="update") as hdul:
     abs_y = np.clip(abs_y, np.min(hdul[1].data["ABSY"]), np.max(hdul[1].data["ABSY"]))
     
     # Update old columns
+    print(hdul[1].data["DETPHI2"].shape)
     hdul[1].data["DETPHI2"] = nn_phi
     #hdul[1].data["PI"] = pi # Do not copy NN energies over
     hdul[1].data["ABSX"] = abs_x

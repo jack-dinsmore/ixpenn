@@ -123,7 +123,7 @@ case $SOURCE in
 
     4u)
         export OBS='02002302'
-        export SETNUM=$OBS
+        export SETNUM='02002399'
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM1='01'
@@ -146,6 +146,7 @@ case $SOURCE in
     lmc)
         export OBS='02001901'
         export SETNUM=$OBS
+        export VERSION='02'
         export ATTNUM='02'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -200,7 +201,7 @@ case $SOURCE in
     crab2)
         export CHUNK='01001020'
         export OBS='01001001'
-        export SETNUM='01001001'
+        export SETNUM='01001099'
         export VERSION='00'
         export ATTNUM='12'
         export PAYNUM1='09'
@@ -212,7 +213,7 @@ case $SOURCE in
     crab3)
         export CHUNK='01001030'
         export OBS='01001001'
-        export SETNUM='01001001'
+        export SETNUM='01001099'
         export VERSION='00'
         export ATTNUM='12'
         export PAYNUM1='09'
@@ -225,7 +226,7 @@ case $SOURCE in
     crab4)
         export CHUNK='01001040'
         export OBS='01001002'
-        export SETNUM='01001002'
+        export SETNUM='01001099'
         export VERSION='00'
         export ATTNUM='11'
         export PAYNUM1='08'
@@ -238,7 +239,7 @@ case $SOURCE in
         export CHUNK='01001050'
         export OBS='01001002'
         export VERSION='00'
-        export SETNUM='01001002'
+        export SETNUM='01001099'
         export ATTNUM='11'
         export PAYNUM1='08'
         export PAYNUM2='09'
@@ -250,7 +251,7 @@ case $SOURCE in
         export CHUNK='01001060'
         export OBS='01001002'
         export VERSION='00'
-        export SETNUM='01001002'
+        export SETNUM='01001099'
         export ATTNUM='11'
         export PAYNUM1='08'
         export PAYNUM2='09'
@@ -263,7 +264,7 @@ case $SOURCE in
         export OBS='02001001'
         export VERSION='00'
         export ATTNUM='01'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
@@ -274,7 +275,7 @@ case $SOURCE in
         export CHUNK='02001020'
         export OBS='02001001'
         export VERSION='00'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -285,7 +286,7 @@ case $SOURCE in
     crab9)
         export CHUNK='02001030'
         export OBS='02001001'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export VERSION='00'
         export ATTNUM='01'
         export PAYNUM1='01'
@@ -298,7 +299,7 @@ case $SOURCE in
         export CHUNK='02001040'
         export OBS='02001002'
         export VERSION='00'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -311,7 +312,7 @@ case $SOURCE in
         export OBS='02001002'
         export VERSION='00'
         export VERSION='00'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -324,7 +325,7 @@ case $SOURCE in
         export OBS='02001002'
         export VERSION='00'
         export VERSION='00'
-        export SETNUM='02001001'
+        export SETNUM='02001099'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -373,5 +374,5 @@ case $SOURCE in
 esac
 
 if [ -z "$CHUNK" ]; then
-    export CHUNK=$SETNUM
+    export CHUNK=$OBS
 fi
