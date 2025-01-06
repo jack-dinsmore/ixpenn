@@ -47,4 +47,6 @@ If you are only interested in doing moments processing, pass the `USE_MOM` flag 
 
 6. *Check the logs for errors* Run `error_check.sh LOG_FILES` at any point, replacing `LOG_FILES` with the log files you'd like to check for errors. This can be done manually of course but if the logs are long it can be easy to miss the messages.
 
+7. *Undo aspect correction* (Optional) If you would like to aspect correct yourself, run 6unasp.sh
+
 If you need to simulate the data set, `sim.sh` helps with that but you need an installation of `gpdsw`.
