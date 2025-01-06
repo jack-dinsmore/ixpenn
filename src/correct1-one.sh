@@ -2,21 +2,6 @@ source src/filenames.sh
 
 echo $NN_FILE
 
-case $DET in 
-    1)
-        PAYNUM=$PAYNUM1
-        ;;
-    2)
-        PAYNUM=$PAYNUM2
-        ;;
-    3)
-        PAYNUM=$PAYNUM3
-        ;;
-    *)
-        echo "Could not recognize detector"
-        ;;
-esac
-
 ixpegaincorrtemp infile=$DATA_FOLDER"$FILENAME"_recon.fits outfile=$DATA_FOLDER"$FILENAME"_recon_gain.fits hkfile="$DATA_FOLDER"hk/ixpe"$OBS"_all_pay_132"$DET"_v"$PAYNUM".fits clobber=True logfile=NONE
 
 #######

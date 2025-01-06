@@ -16,6 +16,51 @@ else
     FILE_VERSION=$VERSION
     # Version variable is set
 fi
+
+# Set the other variables
+case $DET in
+    1)
+        if [ -z "${PAYNUM1}" ]; then
+            PAYNUM=$PAYNUM
+        else
+            PAYNUM=$PAYNUM1
+        fi
+        if [ -z "${ATTNUM1}" ]; then
+            ATTNUM=$ATTNUM
+        else
+            ATTNUM=$ATTNUM1
+        fi
+        ;;
+    2)
+        if [ -z "${PAYNUM1}" ]; then
+            PAYNUM=$PAYNUM
+        else
+            PAYNUM=$PAYNUM2
+        fi
+        if [ -z "${ATTNUM1}" ]; then
+            ATTNUM=$ATTNUM
+        else
+            ATTNUM=$ATTNUM2
+        fi
+        ;;
+    3)
+        if [ -z "${PAYNUM1}" ]; then
+            PAYNUM=$PAYNUM
+        else
+            PAYNUM=$PAYNUM3
+        fi
+        if [ -z "${ATTNUM1}" ]; then
+            ATTNUM=$ATTNUM
+        else
+            ATTNUM=$ATTNUM3
+        fi
+        ;;
+    *)
+        echo "Could not recognize detector"
+        ;;
+esac
+
+
 export RAW_FILENAME="event_l1/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
 export FILENAME="recon/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION # recon
