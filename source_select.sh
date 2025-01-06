@@ -21,10 +21,53 @@ export CXX=/share/software/user/open/gcc/9.1.0/bin/g++
 export FC=/share/software/user/open/gcc/9.1.0/bin/gfortran
 export PERL=/share/software/user/open/perl/5.26.0/bin/perl
 export PYTHON=/share/software/user/open/python/3.9.0/bin/python3
-unset CFLAGS CXXFLAGS FFLAGS LDFLAGS
+unset CFLAGS CXXFLAGS FFLAGS LDFLAGS CHUNK
 export PREFIX="$PWD/"
 
 case $SOURCE in 
+    pks2155)
+        export OBS='02005601'
+	    export SETNUM='02005601'
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        export PPGNUM='01'
+        ;;
+
+    1rxsJ17081)
+        export OBS='01003101'
+	    export SETNUM='01003199'
+        export VERSION='02'
+        export ATTNUM='03'
+        export PAYNUM1='03'
+        export PAYNUM2='03'
+        export PAYNUM3='03'
+        export PPGNUM='03'
+        ;;
+
+    1rxsJ17082)
+        export OBS='01003102'
+	    export SETNUM='01003199'
+        export VERSION='03'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        export PPGNUM='02'
+        ;;
+
+    1rxsJ17083)
+        export OBS='01003103'
+	    export SETNUM='01003199'
+        export VERSION='02'
+        export ATTNUM='01'
+        export PAYNUM1='01'
+        export PAYNUM2='01'
+        export PAYNUM3='01'
+        export PPGNUM='02'
+        ;;
 
     b05401)
 	export OBS='02001201'
@@ -96,6 +139,36 @@ case $SOURCE in
         export PAYNUM2='01'
         export PAYNUM3='01'
         export PPGNUM='02'
+        ;;
+
+    gcf4)
+        export OBS='01003401'
+        export SETNUM='01003499'
+        export VERSION1='06'
+        export VERSION2='04'
+        export VERSION3='05'
+        export ATTNUM1='15'
+        export ATTNUM2='14'
+        export ATTNUM3='14'
+        export PAYNUM1='04'
+        export PAYNUM2='03'
+        export PAYNUM3='03'
+        export PPGNUM='01'
+        ;;
+
+    gcf5)
+        export OBS='01003402'
+        export SETNUM='01003499'
+        export VERSION1='06'
+        export VERSION2='04'
+        export VERSION3='05'
+        export ATTNUM1='15'
+        export ATTNUM2='15'
+        export ATTNUM3='14'
+        export PAYNUM1='04'
+        export PAYNUM2='03'
+        export PAYNUM3='03'
+        export PPGNUM='01'
         ;;
 
     gx301)
@@ -304,7 +377,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     crab11)
@@ -317,7 +390,7 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     crab12)
@@ -330,14 +403,14 @@ case $SOURCE in
         export PAYNUM1='01'
         export PAYNUM2='01'
         export PAYNUM3='01'
-        export PPGNUM='01'
+        export PPGNUM='02'
         ;;
 
     crab13)
-        export OBS='02006010'
+        export CHUNK='02006010'
+        export OBS="02006001"
+        export SETNUM=$OBS
         export VERSION='00'
-        export VERSION='00'
-        export SETNUM='02006001'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -346,9 +419,10 @@ case $SOURCE in
         ;;
 
     crab14)
-        export OBS='02006020'
+        export CHUNK='02006020'
+        export OBS="02006001"
+        export SETNUM=$OBS
         export VERSION='00'
-        export SETNUM='02006001'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
@@ -357,9 +431,10 @@ case $SOURCE in
         ;;
     
     crab15)
-        export OBS='02006030'
+        export CHUNK='02006030'
+        export OBS="02006001"
+        export SETNUM=$OBS
         export VERSION='00'
-        export SETNUM='02006001'
         export ATTNUM='01'
         export PAYNUM1='01'
         export PAYNUM2='01'
