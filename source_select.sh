@@ -7,8 +7,8 @@
 #   - OBS: Observation ID of the .fits file within event_l1.
 #   - SETNUM: the observation set ID (the name of the directory containing the auxil, hk, event_l1, etc. directories). Usually the same as $OBS unless you used split.sh to change $OBS, or if the observation came in multiple chunks.
 #   - VERSION: the vXX version number of these event_l1 fits files. Zero if you used split.sh.
-#   - ATTNUM: the version of the *_att_* files in the hk directory (usually 01)
-#   - PAYNUM1: the version of the payload file for detector 1. The payload files begin with *_pay_132X_vYY*, where X is the detector number and YY is the version number.
+#   - ATTNUM: the version of the *_att_* files in the hk directory (usually 01). If the different detectors have different attitude numbers, you can instead use ATTNUM1, ATTNUM2, and ATTNUM3 to set different numbers for detectors 1, 2, and 3. Do not use both ATTNUM and the numbered ATTNUM# variables.
+#   - PAYNUM: the version of the payload file. Again, PAYNUM1, 2, and 3 are available if the versions differ between detectors. The payload files begin with *_pay_132X_vYY*, where X is the detector
 #   - PAYNUM2 and PAYNUM3: the same for detectors 2 and 3.
 
 # Make sure you end your code block in a double semicolon.
@@ -30,9 +30,7 @@ case $SOURCE in
 	    export SETNUM='02005601'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -41,9 +39,7 @@ case $SOURCE in
 	    export SETNUM='01003199'
         export VERSION='02'
         export ATTNUM='03'
-        export PAYNUM1='03'
-        export PAYNUM2='03'
-        export PAYNUM3='03'
+        export PAYNUM='03'
         export PPGNUM='03'
         ;;
 
@@ -52,9 +48,7 @@ case $SOURCE in
 	    export SETNUM='01003199'
         export VERSION='03'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -63,9 +57,7 @@ case $SOURCE in
 	    export SETNUM='01003199'
         export VERSION='02'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -76,9 +68,7 @@ case $SOURCE in
         export VERSION2='04'
         export VERSION3='02'
         export ATTNUM='03'
-        export PAYNUM1='03'
-        export PAYNUM2='03'
-        export PAYNUM3='03'
+        export PAYNUM='03'
         export PPGNUM='01'
         ;;
 
@@ -89,9 +79,7 @@ case $SOURCE in
         export VERSION2='03'
         export VERSION3='02'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 	
@@ -102,9 +90,7 @@ case $SOURCE in
         export VERSION2='01'
         export VERSION3='01'
         export ATTNUM='03'
-        export PAYNUM1='02'
-        export PAYNUM2='02'
-        export PAYNUM3='02'
+        export PAYNUM='02'
         export PPGNUM='03'
         ;;
 
@@ -113,9 +99,7 @@ case $SOURCE in
         export SETNUM='02007999'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -124,9 +108,7 @@ case $SOURCE in
         export SETNUM='02007999'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -135,9 +117,7 @@ case $SOURCE in
         export SETNUM='02007999'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -159,9 +139,9 @@ case $SOURCE in
     gcf5)
         export OBS='01003402'
         export SETNUM='01003499'
-        export VERSION1='06'
+        export VERSION1='05'
         export VERSION2='04'
-        export VERSION3='05'
+        export VERSION3='04'
         export ATTNUM1='15'
         export ATTNUM2='15'
         export ATTNUM3='14'
@@ -176,9 +156,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='02'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -188,9 +166,7 @@ case $SOURCE in
         export SETNUM="m1002601"
         export VERSION='02'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -199,9 +175,7 @@ case $SOURCE in
         export SETNUM='02002399'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -210,9 +184,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -221,9 +193,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='02'
         export ATTNUM='02'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -232,9 +202,7 @@ case $SOURCE in
         export VERSION='02'
         export SETNUM=$OBS
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -243,9 +211,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -253,9 +219,7 @@ case $SOURCE in
         export OBS='sim'
         export VERSION='01'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -338,9 +302,7 @@ case $SOURCE in
         export VERSION='00'
         export ATTNUM='01'
         export SETNUM='02001099'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -350,9 +312,7 @@ case $SOURCE in
         export VERSION='00'
         export SETNUM='02001099'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -362,9 +322,7 @@ case $SOURCE in
         export SETNUM='02001099'
         export VERSION='00'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -374,9 +332,7 @@ case $SOURCE in
         export VERSION='00'
         export SETNUM='02001099'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -384,12 +340,9 @@ case $SOURCE in
         export CHUNK='02001050'
         export OBS='02001002'
         export VERSION='00'
-        export VERSION='00'
         export SETNUM='02001099'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -397,12 +350,9 @@ case $SOURCE in
         export CHUNK='02001060'
         export OBS='02001002'
         export VERSION='00'
-        export VERSION='00'
         export SETNUM='02001099'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='02'
         ;;
 
@@ -412,9 +362,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='00'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
@@ -424,9 +372,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='00'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
     
@@ -436,9 +382,7 @@ case $SOURCE in
         export SETNUM=$OBS
         export VERSION='00'
         export ATTNUM='01'
-        export PAYNUM1='01'
-        export PAYNUM2='01'
-        export PAYNUM3='01'
+        export PAYNUM='01'
         export PPGNUM='01'
         ;;
 
