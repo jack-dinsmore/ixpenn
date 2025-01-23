@@ -19,19 +19,33 @@ cd /home/groups/rwr/jtd/IXPEML
 
 export DET='1'
 source $PREFIX"src/filenames.sh"
+echo $NN_FILE
 nvidia-smi
-python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+
+if [ -f $NN_FILE ]; then
+    echo "File "$NN_FILE" already exists."
+else
+    python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+fi
 
 
 
 export DET='2'
 source $PREFIX"src/filenames.sh"
 nvidia-smi
-python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+if [ -f $NN_FILE ]; then
+    echo "File "$NN_FILE" already exists."
+else
+    python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+fi
 
 
 
 export DET='3'
 source $PREFIX"src/filenames.sh"
 nvidia-smi
-python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+if [ -f $NN_FILE ]; then
+    echo "File "$NN_FILE" already exists."
+else
+    python3 run_ensemble_eval.py $SOURCE"-det"$DET --data_list $NN_FOLDER --batch_size 256
+fi

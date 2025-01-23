@@ -25,6 +25,33 @@ unset CFLAGS CXXFLAGS FFLAGS LDFLAGS CHUNK
 export PREFIX="$PWD/"
 
 case $SOURCE in 
+    andrew1)
+        export OBS='03006701'
+	    export SETNUM='03006799'
+        export VERSION='01'
+        export ATTNUM='02'
+        export PAYNUM='01'
+        export PPGNUM='02'
+        ;;
+
+    andrew2)
+        export OBS='03006702'
+	    export SETNUM='03006799'
+        export VERSION='01'
+        export ATTNUM='02'
+        export PAYNUM='01'
+        export PPGNUM='02'
+        ;;
+
+    andrew3)
+        export OBS='03006703'
+	    export SETNUM='03006799'
+        export VERSION='01'
+        export ATTNUM='02'
+        export PAYNUM='01'
+        export PPGNUM='02'
+        ;;
+
     pks2155)
         export OBS='02005601'
 	    export SETNUM='02005601'
@@ -137,6 +164,23 @@ case $SOURCE in
         ;;
 
     gcf5)
+        export CHUNK='01003412'
+        export OBS='01003402'
+        export SETNUM='01003499'
+        export VERSION1='05'
+        export VERSION2='04'
+        export VERSION3='04'
+        export ATTNUM1='15'
+        export ATTNUM2='15'
+        export ATTNUM3='14'
+        export PAYNUM1='04'
+        export PAYNUM2='03'
+        export PAYNUM3='03'
+        export PPGNUM='01'
+        ;;
+
+    gcf6)
+        export CHUNK='01003422'
         export OBS='01003402'
         export SETNUM='01003499'
         export VERSION1='05'
