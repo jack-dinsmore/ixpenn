@@ -49,4 +49,6 @@ If you are only interested in doing moments processing, pass the `USE_MOM` flag 
 
 7. *Undo aspect correction* (Optional) If you would like to aspect correct yourself, run 6unasp.sh
 
+8. *Remove particle background* (Optional) If you want to apply Di Marco's background subtraction algorithm, use 7bkg.src
+
 If you need to simulate the data set, `sim.sh` helps with that but you need an installation of `gpdsw`.

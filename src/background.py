@@ -34,8 +34,8 @@ def get_mask(l1_filename, pk_map_file, infile):
     mask = np.ones_like(energy, bool)
     mask &= energy > 2
     mask &= energy < 8
-    #mask &= n_pixels < 70 + 30 * energy
-    mask &= 0.8 * (1 -  np.exp(-(energy + 0.25) / 1.1)) + 0.004 * energy < energy_fraction
+    mask &= n_pixels < 115 + 195 * (energy / 8)**2
+    mask &= 0.88 * (1 -  np.exp(-(energy + 0.25) / 1.1)) + 0.004 * energy + 0.01 < energy_fraction
     mask &= energy_fraction < 1
     mask &= border_pixels < 2
 
@@ -76,4 +76,4 @@ if __name__ == "__main__":
     mask_file(infile, outfile, mask)
 
     # Print some statistics
-    print(f"Remaining fraction: {np.mean(mask)*100:.1f}%")
+    print(f"Remaining fraction: {np.mean(mask)*100:.1f}% (Target ~20%)")
