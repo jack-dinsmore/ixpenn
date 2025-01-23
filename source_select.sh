@@ -29,7 +29,7 @@ case $SOURCE in
         export OBS='03006701'
 	    export SETNUM='03006799'
         export VERSION='01'
-        export ATTNUM='02'
+        export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
         ;;
@@ -38,7 +38,7 @@ case $SOURCE in
         export OBS='03006702'
 	    export SETNUM='03006799'
         export VERSION='01'
-        export ATTNUM='02'
+        export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
         ;;
@@ -49,7 +49,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='02'
         export PAYNUM='01'
-        export PPGNUM='02'
+        export PPGNUM='01'
         ;;
 
     pks2155)

@@ -67,6 +67,11 @@ if __name__ == "__main__":
     infile = sys.argv[3]
     outfile = sys.argv[4]
 
+    print("Level 1 file\t", l1_filename)
+    print("PK map file\t", pk_map_file)
+    print("Input file\t", infile)
+    print("Output file\t", outfile)
+
     mask = get_mask(l1_filename, pk_map_file, infile)
     mask_file(infile, outfile, mask)
 
