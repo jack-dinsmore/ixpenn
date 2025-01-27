@@ -41,7 +41,7 @@ def vis_one(datafile):
 def vis_array(tracks, n, labels=None, out="track-grid"):
     if labels is None: labels = [""] * n
     l = int(np.sqrt(n))
-    fig, axs = plt.subplots(figsize=(1.5*l,1.5*0.866*l), ncols=l, nrows=l, sharex=True, sharey=True)
+    fig, axs = plt.subplots(figsize=(1.*l,1.5*0.866*l), ncols=l, nrows=l, sharex=True, sharey=True)
     for track, ax, label in zip(tracks[:n], axs.reshape(-1), labels):
         vis(track, ax)
         ax.text(0.5, 1, label, ha="center", va="top", size=16, transform=ax.transAxes)
@@ -50,12 +50,12 @@ def vis_array(tracks, n, labels=None, out="track-grid"):
     fig.savefig(f"figs/{out}.png")
 
 if __name__ == "__main__":
-    clean_tracks = load_tracks("data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
+    clean_tracks = load_tracks("../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
         position_filter=(300, 305, 5)
     )
     vis_array(clean_tracks, 100, np.arange(100), out="on-ax")
         
-    unclean_tracks = load_tracks("data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
+    unclean_tracks = load_tracks("../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
         position_filter=(300, 305, -45)
     )
     vis_array(unclean_tracks, 100, np.arange(100), out="off-ax")

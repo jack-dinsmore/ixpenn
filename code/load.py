@@ -1,8 +1,27 @@
 import numpy as np
 from astropy.io import fits
+from scipy import ndimage
 
 STATUS_MASK = [True,False,True,True,True,True,True,True,True,True,True,True,False,True,True,False]
 REBIN = 3
+WIDTH=8
+HEIGHT=12
+
+def rotate(track):
+    # Rotate to put the track aligning upwards
+    track_sum = np.sum(track)
+    x_line = np.arange(track.shape[0]).astype(float)
+    y_line = np.arange(track.shape[1]).astype(float)
+    xs, ys = np.meshgrid(x_line, y_line, indexing="ij")
+    mom_x = np.sum(xs * track) / track_sum
+    mom_y = np.sum(ys * track) / track_sum
+    mom_xy = np.sum(track * (xs - mom_x) * (ys - mom_y))
+    mom_xx = np.sum(track * (xs - mom_x)**2)
+    mom_yy = np.sum(track * (ys - mom_y)**2)
+    angle_radians = 0.5 * np.arctan2(2 * mom_xy, (mom_xx - mom_yy))
+
+    track = ndimage.rotate(track, -angle_radians * 180 / np.pi, reshape=False)
+    return track
 
 def process_track(track):
     track = track.astype(float) - np.nanpercentile(track, 25) # Remove background so that the image can be padded with zeros later
@@ -16,26 +35,25 @@ def process_track(track):
             new_track += rebinned[:new_track.shape[0], :new_track.shape[1]]
     track = new_track
 
-    # Rotate, eventually
+    # Rotate the track
+    track = rotate(track)
 
     # Trim
-    WIDTH=10
-    HEIGHT=10
-    if track.shape[0] > WIDTH:
-        start_x = (track.shape[0]-WIDTH)//2
-        stop_x = (track.shape[0]+WIDTH)//2
+    if track.shape[0] > HEIGHT:
+        start_x = (track.shape[0]-HEIGHT)//2
+        stop_x = (track.shape[0]+HEIGHT)//2
         track = track[start_x:stop_x, :]
-    elif track.shape[0] < WIDTH:
-        initial_x = (WIDTH-track.shape[0])//2
-        odd = (WIDTH - track.shape[0]) % 2
+    elif track.shape[0] < HEIGHT:
+        initial_x = (HEIGHT-track.shape[0])//2
+        odd = (HEIGHT - track.shape[0]) % 2
         track = np.vstack((np.zeros((initial_x, track.shape[1])), track, np.zeros((initial_x+odd, track.shape[1]))))
-    if track.shape[1] > HEIGHT:
-        start_y = (track.shape[1]-HEIGHT)//2
-        stop_y = (track.shape[1]+HEIGHT)//2
+    if track.shape[1] > WIDTH:
+        start_y = (track.shape[1]-WIDTH)//2
+        stop_y = (track.shape[1]+WIDTH)//2
         track = track[:,start_y:stop_y]
-    elif track.shape[1] < HEIGHT:
-        initial_y = (HEIGHT - track.shape[1]) // 2
-        odd = (HEIGHT - track.shape[1]) % 2
+    elif track.shape[1] < WIDTH:
+        initial_y = (WIDTH - track.shape[1]) // 2
+        odd = (WIDTH - track.shape[1]) % 2
         track = np.hstack((np.zeros((track.shape[0], initial_y)), track, np.zeros((track.shape[0], initial_y+odd))))
     return track
 

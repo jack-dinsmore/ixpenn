@@ -44,14 +44,14 @@ def discriminate(reducer, tracks1, tracks2, tracks3, outtag="", labels=["", "", 
 
 def observation_filter(reducer, tracks_train):
     max_lim = 10000
-    tracks2 = load_tracks("data/02007999/event_l1/ixpe02007901_det1_evt1_v01.fits", max_lim=max_lim) # G0.13-0.11
-    tracks3 = load_tracks("data/sim.fits", max_lim=max_lim)
+    tracks2 = load_tracks("../data/02007999/event_l1/ixpe02007901_det1_evt1_v01.fits", max_lim=max_lim) # G0.13-0.11
+    tracks3 = load_tracks("../data/sim.fits", max_lim=max_lim)
     discriminate(reducer, tracks_train, tracks2, tracks3, outtag="obs", labels=["Training set", "Data (G0.13-0.11)", "Simulation"])
 
 def energy_filter(reducer, tracks_train):
     # This uses the moments energies
-    l1_file = "data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits"
-    l2_file = "data/01002601/event_l2/ixpe01002601_det1_evt2_v01.fits"
+    l1_file = "../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits"
+    l2_file = "../data/01002601/event_l2/ixpe01002601_det1_evt2_v01.fits"
     max_lim = 10000
 
     tracks2 = load_tracks(l1_file, max_lim=max_lim, energy_filter=(2,3,l2_file))
@@ -59,17 +59,9 @@ def energy_filter(reducer, tracks_train):
     discriminate(reducer, tracks_train, tracks2, tracks3, outtag="energy", labels=["Training set", "Data (2-3 keV)", "Data (5-8 keV)"])
 
 def position_filter(reducer, tracks_train):
-    l1_file = "data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits"
+    l1_file = "../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits"
     max_lim = 10000
 
     tracks2 = load_tracks(l1_file, max_lim=max_lim, position_filter=(305,300,10))
     tracks3 = load_tracks(l1_file, max_lim=max_lim, position_filter=(305,300,-10))
     discriminate(reducer, tracks_train, tracks2, tracks3, outtag="position", labels=["Training set", "Data (PS)", "Data (BG)"])
-
-if __name__ == "__main__":
-    # 02008801 is PSR B0540-69
-    tracks_train = load_tracks("data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits", max_lim=10000, position_filter=(305,300,50))
-    reducer = build_map(tracks_train)
-    observation_filter(reducer, tracks_train)
-    energy_filter(reducer, tracks_train)
-    position_filter(reducer, tracks_train)

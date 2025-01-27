@@ -1,4 +1,4 @@
-* `discriminate.py`:
+* `discriminate.py`: Some helper functions that load the UMAP reducer.
 
 * `load.py`: Loads tracks
 

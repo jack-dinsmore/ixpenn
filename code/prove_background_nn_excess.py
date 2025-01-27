@@ -11,7 +11,7 @@ bin_edges = np.linspace(1, 10, 50)
 bin_centers = (bin_edges[1:] + bin_edges[:-1]) / 2
 pi_density = np.histogram(np.arange(1024) * 0.04 + 0.02, bin_edges)[0]
 
-with fits.open("data/02008801/event_nn_nn_energies/ixpe02008801_det1_nn.fits") as hdul:
+with fits.open("../data/02008801/event_nn_nn_energies/ixpe02008801_det1_nn.fits") as hdul:
     energies = hdul[1].data["PI"] * 0.04 + 0.02
     xs = hdul[1].data["X"]-305
     ys = hdul[1].data["Y"]-301
@@ -22,7 +22,7 @@ with fits.open("data/02008801/event_nn_nn_energies/ixpe02008801_det1_nn.fits") a
     ax.plot(bin_centers, energy_counts_src / pi_density, label="NN (src)", color='r')
     ax.plot(bin_centers, energy_counts_bg / pi_density, ls="dashed", label="NN (bg)", color='r')
 
-with fits.open("data/02008801/my_event_l2/ixpe02008801_det1_l2.fits") as hdul:
+with fits.open("../data/02008801/my_event_l2/ixpe02008801_det1_l2.fits") as hdul:
     energies = hdul[1].data["PI"] * 0.04 + 0.02
     xs = hdul[1].data["X"]-305
     ys = hdul[1].data["Y"]-301
@@ -42,4 +42,4 @@ ax.set_xlabel("Energy [keV]")
 ax.set_ylabel("Counts")
 ax.set_xscale("log")
 ax.set_yscale("log")
-fig.savefig("energies.png")
+fig.savefig("figs/energies.png")
