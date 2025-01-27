@@ -1,0 +1,7 @@
+*.npy
+*.pk
+*.swp
+.DS_Store
+
+data/
+__pycache__/
