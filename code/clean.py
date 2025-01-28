@@ -1,14 +1,13 @@
 from train import *
 from scipy.interpolate import RegularGridInterpolator
-import shutil, os, sys, pickle
-from load import STATUS_MASK
+import shutil, os, pickle
 
 def make_interpolator():
     print("Making new interpolator")
     l1_file = "../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits"
-    tracks_train = load_tracks(l1_file, max_lim=100000, position_filter=(305,300,50))
-    tracks_phot = load_tracks(l1_file, max_lim=100000, position_filter=(305,300,10))
-    tracks_bg = load_tracks(l1_file, max_lim=100000, position_filter=(305,300,-10))
+    tracks_train = load_tracks(l1_file, max_lim=100000, position_filter=(304,302,80))
+    tracks_phot = load_tracks(l1_file, max_lim=100000, position_filter=(304,302,3))
+    tracks_bg = load_tracks(l1_file, max_lim=100000, position_filter=(304,302,-20))
     
     reducer = build_map(tracks_train)
     with open("data/reducer.pk", 'wb') as f:
@@ -157,16 +156,15 @@ if __name__ == "__main__":
 
     print("Fractional change to background, fractional change to source")
 
-    print(check_background(
+    print(check_background( # GCF
         "../data/02007999/my_event_l2/ixpe02007901_det1_l2.fits",
         "../data/02007999/event_clean/ixpe02007901_det1_evt3_v01.fits"
     ))
-    print(check_background(
+    print(check_background( # B0540
         "../data/02008801/my_event_l2/ixpe02008801_det1_l2.fits",
         "../data/02008801/event_clean/ixpe02008801_det1_evt3_v01.fits"
     ))
-    print(check_background(
+    print(check_background( # GX 301
         "../data/01002601/my_event_l2/ixpe01002601_det1_l2.fits",
         "../data/01002601/event_clean/ixpe01002601_det1_evt3_v01.fits"
     ))
-    
