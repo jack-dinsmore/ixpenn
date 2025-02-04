@@ -5,10 +5,12 @@ from load import load_tracks
 
 plt.style.use("root")
 
-def vis(track, ax):
+def vis(track, ax, size=48, offset=True):
     height, width = track.shape
-    x_line = np.arange(width+1)
+    x_line = np.arange(width+1).astype(float)
     y_line = np.arange(height+1) * 0.866
+    x_line -= np.mean(x_line)
+    y_line -= np.mean(y_line)
 
     x_centers = (x_line[1:] + x_line[:-1]) / 2
     y_centers = (y_line[1:] + y_line[:-1]) / 2
@@ -16,17 +18,20 @@ def vis(track, ax):
     # Display the image
     cmap = plt.get_cmap("RdPu")
     xs_grid, ys_grid = np.meshgrid(x_centers, y_centers)
-    xs_grid[1::2,:] += (x_line[1] - x_line[0]) / 2
+    if offset:
+        xs_grid[1::2,:] += (x_line[1] - x_line[0]) / 2
+    else:
+        xs_grid[0::2,:] += (x_line[1] - x_line[0]) / 2
 
     min_count = 0
-    max_count = np.max(track)
+    max_count = np.nanmax(track)
     image = track.reshape(-1)
     mask = image > min_count
     # image = image[mask]
     # xs_grid = xs_grid.reshape(-1)[mask]
     # ys_grid = ys_grid.reshape(-1)[mask]
     colors = cmap((image - min_count) / (max_count - min_count))
-    ax.scatter(xs_grid, ys_grid, marker='h', color=colors, s=48, zorder=-2)
+    ax.scatter(xs_grid, ys_grid, marker='h', color=colors, s=size, zorder=-2)
     ax.set_aspect("equal")
 
 

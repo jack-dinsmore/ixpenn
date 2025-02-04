@@ -33,10 +33,10 @@ def make_interpolator():
     hist_bg = np.histogram2d(embedding_bg[:,0], embedding_bg[:,1], (x_line, y_line))[0].astype(float)
     hist_bg /= np.sum(hist_bg)
 
-    # prob_phot = hist_phot / (hist_phot + hist_bg)
-    # prob_phot[np.isnan(prob_phot)] = 0
-    prob_phot = np.zeros_like(hist_phot)
-    prob_phot[hist_phot > hist_bg] = 1
+    prob_phot = hist_phot / (hist_phot + hist_bg)
+    prob_phot[np.isnan(prob_phot)] = 0
+    # prob_phot = np.zeros_like(hist_phot)
+    # prob_phot[hist_phot > hist_bg] = 1
 
     np.save("data/x_centers.npy", x_centers)
     np.save("data/y_centers.npy", y_centers)
