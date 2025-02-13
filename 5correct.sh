@@ -12,15 +12,16 @@ source $PREFIX"src/mlixpe.sh"  > /dev/null
 source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
 export HEADASNOQUERY=
 export HEADASPROMPT=/dev/null
+export TIME_BIN_SIZE=300 # seconds
 
 export DET='1'
-source src/correct1-one.sh
-source src/correct2-one.sh
+source src/correct-one.sh
+source src/centroid-one.sh
 
 export DET='2'
-source src/correct1-one.sh
-source src/correct2-one.sh
+source src/correct-one.sh
+source src/centroid-one.sh
 
 export DET='3'
-source src/correct1-one.sh
-source src/correct2-one.sh
+source src/correct-one.sh
+source src/centroid-one.sh

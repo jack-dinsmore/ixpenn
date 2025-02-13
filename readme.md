@@ -47,8 +47,10 @@ If you are only interested in doing moments processing, pass the `USE_MOM` flag 
 
 6. *Check the logs for errors* Run `error_check.sh LOG_FILES` at any point, replacing `LOG_FILES` with the log files you'd like to check for errors. This can be done manually of course but if the logs are long it can be easy to miss the messages.
 
-7. *Undo aspect correction* (Optional) If you would like to aspect correct yourself, run 6unasp.sh
+# Optional code
 
-8. *Remove particle background* (Optional) If you want to apply Di Marco's background subtraction algorithm, use 7bkg.src
+*Aspect correction* If you would like to adjust the aspect correction code, you can either tweak the time bins used by the standard `ixpeaspcorr` program, use the new `ixpeboomdriftcorr` pipeline, or use uncorrected files. To tweak the time bin, set the TIME_BIN_SIZE flag equal to the desired bin size in units of seconds and run 5.5centroid. The default is 300. To use boomdriftcorr or use the uncorrected files, run 6unasp.
+
+*Remove particle background* (Optional) If you want to apply Di Marco's background subtraction algorithm, use 7bkg.src
 
 If you need to simulate the data set, `sim.sh` helps with that but you need an installation of `gpdsw`.

@@ -13,8 +13,7 @@
 
 # Make sure you end your code block in a double semicolon.
 
-#export HEADAS=/home/groups/rwr/jtd/heasoft-6.32.1/x86_64-pc-linux-gnu-libc2.17
-export HEADAS=/home/groups/rwr/jtd/heasoft-6.33.2/x86_64-pc-linux-gnu-libc2.17
+export HEADAS=/home/groups/rwr/jtd/heasoft-6.34/x86_64-pc-linux-gnu-libc2.17
 export CALDB=/home/groups/rwr/jtd/caldb
 export CC=/share/software/user/open/gcc/9.1.0/bin/gcc
 export CXX=/share/software/user/open/gcc/9.1.0/bin/g++
@@ -32,6 +31,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=260.8466667
+        export SRC_DEC=-28.6325000
         ;;
 
     andrew2)
@@ -41,6 +42,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=260.8466667
+        export SRC_DEC=-28.6325000
         ;;
 
     andrew3)
@@ -50,6 +53,8 @@ case $SOURCE in
         export ATTNUM='02'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=260.8466667
+        export SRC_DEC=-28.6325000
         ;;
 
     pks2155)
@@ -97,6 +102,8 @@ case $SOURCE in
         export ATTNUM='03'
         export PAYNUM='03'
         export PPGNUM='01'
+        export SRC_RA=85.0450000
+        export SRC_DEC=-69.3316667
         ;;
 
     b05402)
@@ -108,6 +115,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=85.0450000
+        export SRC_DEC=-69.3316667
         ;;
 	
     b05403)
@@ -119,6 +128,8 @@ case $SOURCE in
         export ATTNUM='03'
         export PAYNUM='02'
         export PPGNUM='03'
+        export SRC_RA=85.0450000
+        export SRC_DEC=-69.3316667
         ;;
 
     gcf1)
@@ -128,6 +139,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gcf2)
@@ -137,6 +150,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gcf3)
@@ -146,6 +161,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gcf4)
@@ -161,6 +178,8 @@ case $SOURCE in
         export PAYNUM2='03'
         export PAYNUM3='03'
         export PPGNUM='01'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gcf5)
@@ -177,6 +196,8 @@ case $SOURCE in
         export PAYNUM2='03'
         export PAYNUM3='03'
         export PPGNUM='01'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gcf6)
@@ -193,6 +214,8 @@ case $SOURCE in
         export PAYNUM2='03'
         export PAYNUM3='03'
         export PPGNUM='01'
+        export SRC_RA=266.5700000
+        export SRC_DEC=-28.8900000
         ;;
 
     gx301)
@@ -202,16 +225,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
-        ;;
-
-    gx301mom)
-        export USE_MOM="use"
-        export OBS='01002601'
-        export SETNUM="m1002601"
-        export VERSION='02'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        export PPGNUM='01'
+        export SRC_RA=186.6566667
+        export SRC_DEC=-62.7702778
         ;;
 
     4u)
@@ -221,7 +236,10 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=275.9191667
+        export SRC_DEC=-30.3611111
         ;;
+
 
     gx99)
         export OBS='01002401'
@@ -230,6 +248,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=262.9341667
+        export SRC_DEC=-16.9613889
         ;;
 
     lmc)
@@ -239,6 +259,8 @@ case $SOURCE in
         export ATTNUM='02'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=84.9116667
+        export SRC_DEC=-69.7433333
         ;;
 
     cirx1)
