@@ -2,6 +2,9 @@ source src/filenames.sh
 
 if [ -z "${TIME_BIN_SIZE}" ]; then 
     TIME_BIN_SIZE=300
+    FINAL_TAG="" # This is the default option
+else
+    FINAL_TAG="_"$TIME_BIN_SIZE
 fi
 
 if [ -z "${X_PIX_MEAN}" ]; then 
@@ -34,10 +37,10 @@ fparkey $TIME_BIN_SIZE $OUTFILE"[1]" CENTROID comm='The time bin size used for c
 
 if [ -z "${USE_MOM}" ]; then
     # NN
-    ftcopy $OUTFILE'[EVENTS][col TRG_ID; TIME; STATUS; STATUS2; PI; W_MOM; W_NN; X; Y; Q; U; P_TAIL]' $FINAL_FOLDER/"$FINAL_FILENAME".fits clobber=True
+    ftcopy $OUTFILE'[EVENTS][col TRG_ID; TIME; STATUS; STATUS2; PI; W_MOM; W_NN; X; Y; Q; U; P_TAIL]' $FINAL_FOLDER"/"$FINAL_FILENAME$FINAL_TAG".fits" clobber=True
 else 
     # MOM
-    ftcopy $OUTFILE'[EVENTS][col TRG_ID; TIME; STATUS; STATUS2; PI; W_MOM; X; Y; Q; U; P_TAIL]' $FINAL_FOLDER/"$FINAL_FILENAME".fits clobber=True
+    ftcopy $OUTFILE'[EVENTS][col TRG_ID; TIME; STATUS; STATUS2; PI; W_MOM; X; Y; Q; U; P_TAIL]' $FINAL_FOLDER"/"$FINAL_FILENAME$FINAL_TAG".fits" clobber=True
 fi
 
 #######
