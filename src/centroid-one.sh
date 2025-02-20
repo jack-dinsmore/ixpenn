@@ -15,7 +15,7 @@ echo "Using x_pix_mean" $X_PIX_MEAN
 echo "Using y_pix_mean" $Y_PIX_MEAN
 echo
 
-cp $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd.fits $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd_int.fits
+cp $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000.fits $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd_int.fits # Note: this centroids the UNCORRECTED FILE and does not boom drift correct. If you want to both boom drift correct AND centroid (which I believe the IXPE pipeline does) you would replace the first filename above with *_j2000_bd.fits instead of *_j2000.fits.
 OUTFILE=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd_aspcorr.fits
 
 ixpeaspcorr \
