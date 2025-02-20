@@ -102,6 +102,7 @@ case $SOURCE in
         export ATTNUM='03'
         export PAYNUM='03'
         export PPGNUM='01'
+        export ADCNUM='03'
         export SRC_RA=85.0450000
         export SRC_DEC=-69.3316667
         ;;
@@ -128,6 +129,7 @@ case $SOURCE in
         export ATTNUM='03'
         export PAYNUM='02'
         export PPGNUM='03'
+        export ADCNUM='02'
         export SRC_RA=85.0450000
         export SRC_DEC=-69.3316667
         ;;
@@ -282,11 +284,12 @@ case $SOURCE in
         ;;
 
     sim)
-        export OBS='sim'
+        export OBS='_pd1_spec2_ang0'
+        export SETNUM='sim'
         export VERSION='01'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        export PPGNUM='01'
+        #export ATTNUM='01'
+        #export PAYNUM='01'
+        #export PPGNUM='01'
         ;;
 
     crab1)
@@ -395,7 +398,7 @@ case $SOURCE in
     crab10)
         export CHUNK='02001040'
         export OBS='02001002'
-        export VERSION='00'
+        /export VERSION='00'
         export SETNUM='02001099'
         export ATTNUM='01'
         export PAYNUM='01'
@@ -457,6 +460,10 @@ case $SOURCE in
         ;;
 
 esac
+
+if [ -z "$ADCNUM" ]; then
+    export ADCNUM='01'
+fi
 
 if [ -z "$CHUNK" ]; then
     export CHUNK=$OBS

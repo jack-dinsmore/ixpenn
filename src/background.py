@@ -7,10 +7,25 @@ from astropy.io import fits
 
 STATUS2_MASK = np.array([c == '0' for c in "0x0000000000x00x"])
 
-def get_mask(l1_filename, pk_map_file, infile):
+def get_mask(l1_filename, pk_map_file, recon_file=None):
+    """Returns an np array which contains the mask of background events.
+
+    Please provide a level 1 file (with the data necessary to execute DiMarco's method)
+    and a file whih contains either PIs or MOM energies. E.g. any file after the pkmap command,
+    or the NN file.
+    """
+    if recon_file is None:
+        recon_file = l1_filename
     with fits.open(l1_filename) as hdul:
-        mask = ~np.any(hdul[1].data["STATUS2"] & STATUS2_MASK, axis=1)
+        mask = np.ones(len(hdul[1].data), bool)
+        if "STATUS2" in hdul[1].columns.names:
+            mask &= ~np.any(hdul[1].data["STATUS2"] & STATUS2_MASK, axis=1)
         full_image = hdul[1].data["PIX_PHAS"][mask]
+
+    with fits.open(recon_file) as hdul:
+        pha = hdul[1].data["PHA"]
+        n_pixels = hdul[1].data["NUM_PIX"]
+        border_pixels = hdul[1].data["TRK_BORD"]
 
     total_counts = []
     for image in full_image:
@@ -18,18 +33,19 @@ def get_mask(l1_filename, pk_map_file, infile):
     total_counts = np.array(total_counts)
 
     with fits.open(pk_map_file) as hdul:
-        #print(hdul[1].columns)
-        energy = hdul[1].data["pi"] * 0.04 + 0.02
-        n_pixels = hdul[1].data["NUM_PIX"]
-        pha = hdul[1].data["PHA"]
-        border_pixels = hdul[1].data["TRK_BORD"]
+        # Will pull energy from PI if it's there, otherwise the energy column if it's there
+        if "PI" in hdul[1].columns.names:
+            energy = hdul[1].data["pi"] * 0.04 + 0.02
+        else:
+            energy = hdul[1].data["MOM_ENERGY"]
+        # Update the column names to the ones in the PKMAP file if they're present
+        if "NUM_PIX" in hdul[1].columns.names:
+            n_pixels = hdul[1].data["NUM_PIX"]
+        if "PHA" in hdul[1].columns.names:
+            pha = hdul[1].data["PHA"]
+        if "TRK_BORD" in hdul[1].columns.names:
+            border_pixels = hdul[1].data["TRK_BORD"]
         energy_fraction = pha / total_counts
-
-    with fits.open(infile) as hdul:
-        energy2 = hdul[1].data["PI"] * 0.04 + 0.02
-        print(energy2, energy)
-
-    print(energy)
 
     mask = np.ones_like(energy, bool)
     mask &= energy > 2
@@ -72,7 +88,7 @@ if __name__ == "__main__":
     print("Input file\t", infile)
     print("Output file\t", outfile)
 
-    mask = get_mask(l1_filename, pk_map_file, infile)
+    mask = get_mask(l1_filename, pk_map_file)
     mask_file(infile, outfile, mask)
 
     # Print some statistics

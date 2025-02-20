@@ -132,7 +132,7 @@ echo "Starting IXPEBOOMDRIFTCORR"
 
 ixpeboomdriftcorr infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_int.fits\
     outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd.fits\
-    adc0110_file=$DATA_FOLDER"hk/ixpe"$OBS"_all_adc_0110_v01.fits"\
+    adc0110_file=$DATA_FOLDER"hk/ixpe"$OBS"_all_adc_0110_v"$ADCNUM".fits"\
     attfile_in=$DATA_FOLDER"hk/ixpe"$OBS"_det"$DET"_att_v"$ATTNUM".fits"\
     attfile_out=$DATA_FOLDER"$FILENAME"_att_corrected.fits\
     clobber=yes\
