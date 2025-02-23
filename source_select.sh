@@ -267,8 +267,8 @@ case $SOURCE in
 
     cirx1)
         export OBS='02002602'
+        export SETNUM='02002699'
         export VERSION='02'
-        export SETNUM=$OBS
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
