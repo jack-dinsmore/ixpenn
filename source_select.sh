@@ -64,6 +64,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=329.7170833
+        export SRC_DEC=-30.2255556
         ;;
 
     1rxsJ17081)
@@ -73,6 +75,8 @@ case $SOURCE in
         export ATTNUM='03'
         export PAYNUM='03'
         export PPGNUM='03'
+        export SRC_RA=257.1954167
+        export SRC_DEC=-40.1477778
         ;;
 
     1rxsJ17082)
@@ -82,6 +86,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=257.1954167
+        export SRC_DEC=-40.1477778
         ;;
 
     1rxsJ17083)
@@ -91,11 +97,13 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export SRC_RA=257.1954167
+        export SRC_DEC=-40.1477778
         ;;
 
     b05401)
-	export OBS='02001201'
-	export SETNUM='02001299'
+    	export OBS='02001201'
+	    export SETNUM='02001299'
         export VERSION1='03'
         export VERSION2='04'
         export VERSION3='02'
@@ -272,6 +280,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=230.1700000
+        export SRC_DEC=-57.1669444
         ;;
 
     scox1)
@@ -281,6 +291,8 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
+        export SRC_RA=244.9791667
+        export SRC_DEC=-15.6400000
         ;;
 
     sim)

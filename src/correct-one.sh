@@ -112,6 +112,7 @@ if [ -z "${SRC_RA}" ]; then
     echo "WARNING: You have not set the source ra. The code will fail. Please set the source RA in source_select"
     echo
     echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    exit
 fi
 
 echo Using coordinates $SRC_RA $SRC_DEC
