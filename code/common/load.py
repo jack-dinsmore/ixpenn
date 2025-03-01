@@ -4,8 +4,8 @@ from scipy import ndimage
 
 STATUS_MASK = [True,False,True,True,True,True,True,True,True,True,True,True,False,True,True,False]
 REBIN = 3
-WIDTH=8
-HEIGHT=12
+WIDTH=12
+HEIGHT=18
 
 def rotate(track):
     # Rotate to put the track aligning upwards
@@ -59,6 +59,15 @@ def process_track(track):
 
 
 def load_tracks(datafile, max_lim=None, energy_filter=None, position_filter=None):
+    """
+    Loads tracks from a fits file
+    # Arguments:
+    * max_lim: the maximum number of tracks to load
+    * energy_filter: the energy range to use
+    * position_filter: the position range to use
+    # Returns
+    A list of images, all reshaped to the same size
+    """
     tracks = []
     energies = None
     if energy_filter is not None:

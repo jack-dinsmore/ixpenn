@@ -1,4 +1,4 @@
-from train import *
+from code.umap.train import *
 from scipy.interpolate import RegularGridInterpolator
 import shutil, os, pickle
 

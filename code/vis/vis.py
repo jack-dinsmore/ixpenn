@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.io import fits
-from load import load_tracks
+import sys
+sys.path.append("../nn")
+from train import evaluate_model
 
 plt.style.use("root")
 
@@ -26,41 +28,38 @@ def vis(track, ax, size=48, offset=True):
     min_count = 0
     max_count = np.nanmax(track)
     image = track.reshape(-1)
-    mask = image > min_count
     # image = image[mask]
     # xs_grid = xs_grid.reshape(-1)[mask]
     # ys_grid = ys_grid.reshape(-1)[mask]
     colors = cmap((image - min_count) / (max_count - min_count))
+    colors[image <= min_count] = (1,1,1,1)
     ax.scatter(xs_grid, ys_grid, marker='h', color=colors, s=size, zorder=-2)
     ax.set_aspect("equal")
 
-
-def vis_one(datafile):
-    tracks = load_tracks(datafile, max_lim=10)
-
-    fig, ax = plt.subplots(figsize=(2,2))
-    index = np.random.randint(len(tracks))
-    vis(tracks[index], ax)
-    fig.savefig("figs/track.png")
-
-def vis_array(tracks, n, labels=None, out="track-grid"):
+def vis_array(tracks, n, labels=None, out="track-grid", use_model=False):
     if labels is None: labels = [""] * n
     l = int(np.sqrt(n))
     fig, axs = plt.subplots(figsize=(1.*l,1.5*0.866*l), ncols=l, nrows=l, sharex=True, sharey=True)
     for track, ax, label in zip(tracks[:n], axs.reshape(-1), labels):
-        vis(track, ax)
+        vis(track, ax, size=20)
         ax.text(0.5, 1, label, ha="center", va="top", size=16, transform=ax.transAxes)
         ax.axis(False)
     fig.subplots_adjust(hspace=0, wspace=0)
+
+    if use_model:
+        # Put rectangles around the tracks which are background
+        probabilities = evaluate_model(tracks[:n])
+        for (prob, ax) in zip(probabilities, axs.reshape(-1)):
+            prob=float(prob)
+            ax.plot([0.05, 0.05], [0.05, 0.95], transform=ax.transAxes, color='r', alpha=prob, lw=1)
+            ax.plot([0.95, 0.95], [0.05, 0.95], transform=ax.transAxes, color='r', alpha=prob, lw=1)
+            ax.plot([0.05, 0.95], [0.05, 0.05], transform=ax.transAxes, color='r', alpha=prob, lw=1)
+            ax.plot([0.05, 0.95], [0.95, 0.95], transform=ax.transAxes, color='r', alpha=prob, lw=1)
     fig.savefig(f"figs/{out}.png")
 
 if __name__ == "__main__":
-    clean_tracks = load_tracks("../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
-        position_filter=(300, 305, 5)
-    )
-    vis_array(clean_tracks, 100, np.arange(100), out="on-ax")
+    bg_tracks = np.load("../nn/data/background0.npy")
+    vis_array(bg_tracks, 100, np.arange(100)+1, out="bg", use_model=True)
         
-    unclean_tracks = load_tracks("../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits", 100,
-        position_filter=(300, 305, -45)
-    )
-    vis_array(unclean_tracks, 100, np.arange(100), out="off-ax")
+    src_tracks = np.load("../nn/data/source0.npy")
+    vis_array(src_tracks, 100, np.arange(100)+1, out="src", use_model=True)

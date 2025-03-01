@@ -2,7 +2,7 @@
 import numpy as np
 from astropy.io import fits
 import matplotlib.pyplot as plt
-from vis import vis
+from code.vis.vis import vis
 from dinsmore.plt import diagram_arrow
 
 plt.style.use("root")

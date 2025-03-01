@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 #from sklearn.preprocessing import StandardScaler
 import umap
-from vis import vis_array, vis
-from load import load_tracks
+from code.vis.vis import vis_array, vis
+from code.common.load import load_tracks
 
 plt.style.use("root")
 
