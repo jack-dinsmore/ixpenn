@@ -24,9 +24,9 @@ def load_model(index=None, return_index=False):
         index = max_index
 
     if return_index:
-        return tf.keras.models.load_model(f"{DATA_DIR}/model{index}.h5"), index
+        return tf.keras.models.load_model(f"{DATA_DIR}/model{index}.keras"), index
     else:
-        return tf.keras.models.load_model(f"{DATA_DIR}/model{index}.h5")
+        return tf.keras.models.load_model(f"{DATA_DIR}/model{index}.keras")
 
 def get_datasets(index):
     if not os.path.exists(f"data/background{index}.npy"):
@@ -53,9 +53,10 @@ def get_datasets(index):
     src = np.load(f"data/source{index}.npy")
 
     validation_index = int(len(bg) * VALIDATION_FRACTION)
+    n_train = len(bg) - validation_index
 
-    train_labels = np.concatenate([[0]*(len(bg) - validation_index), [1]*(len(bg) - validation_index)])
-    test_labels = np.concatenate([[0]*validation_index, [1]*validation_index])
+    test_labels = np.concatenate([[1]*validation_index, [0]*validation_index])
+    train_labels = np.concatenate([[1]*n_train, [0]*n_train])
     train_images = np.concatenate([bg[validation_index:], src[validation_index:]])
     test_images = np.concatenate([bg[:validation_index], src[:validation_index]])
 
@@ -73,29 +74,33 @@ def train_model(index=None):
 
     image_shape = get_image_shape()
     model = models.Sequential()
-    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=image_shape))
+    model.add(layers.Input(image_shape))
+    model.add(layers.Conv2D(16, (3, 3), activation='relu', padding="same"))
     model.add(layers.MaxPooling2D((2, 2)))
-    model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+    model.add(layers.Conv2D(32, (3, 3), activation='relu', padding="same"))
+    model.add(layers.MaxPooling2D((2, 2)))
+    model.add(layers.Conv2D(64, (3, 3), activation='relu', padding="same"))
+    model.add(layers.MaxPooling2D((2, 2)))
+    model.add(layers.Conv2D(128, (3, 3), activation='relu', padding="same"))
     model.add(layers.Flatten())
     model.add(layers.Dense(64, activation='relu'))
-    model.add(layers.Dense(2))
-    model.add(layers.Softmax())
+    model.add(layers.Dense(1, activation='sigmoid'))
 
     model.summary()
 
     model.compile(optimizer='adam',
-                loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                loss="binary_crossentropy",
                 metrics=['accuracy'])
 
     (train_images, train_labels), (test_images, test_labels) = get_datasets(index)
     print(f"Training set: {len(train_images)}")
     print(f"Validation set: {len(test_images)}")
-    history = model.fit(train_images, train_labels, epochs=10, 
+    history = model.fit(train_images, train_labels, epochs=8, 
                         validation_data=(test_images, test_labels))
     with open(f"{DATA_DIR}/history{index}.pk", 'wb') as f:
         pickle.dump(history.history, f)
 
-    model.save(f"{DATA_DIR}/model{index}.h5")
+    model.save(f"{DATA_DIR}/model{index}.keras")
 
 def plot_model(model_index=None):
     model, model_index = load_model(model_index, return_index=True)
@@ -123,6 +128,14 @@ def evaluate_model(tracks, model_index=None):
     
     probabilities = model(reshaped_tracks).numpy()
     return probabilities[:,0]
+
+def test_evaluate(model_index=None):
+    bg_tracks = np.load(f"data/background0.npy")
+    bg_probs = evaluate_model(bg_tracks)
+    src_tracks = np.load(f"data/source0.npy")
+    src_probs = evaluate_model(src_tracks)
+    print(f"Background track prob {np.mean(bg_probs)}")
+    print(f"Source track prob {np.mean(src_probs)}")
 
 def assess_error(index):
     e_bin_edges = np.linspace(2, 8, 51)
@@ -159,8 +172,10 @@ def assess_error(index):
 if __name__ == "__main__":
     # train_model(0)
     # plot_model(0)
-    assess_error(0)
+    # assess_error(0)
 
     # train_model(1)
     # plot_model(1)
-    assess_error(1)
+    # assess_error(1)
+
+    test_evaluate()

@@ -51,6 +51,9 @@ def make_dataset(sources, name, ncut=None):
         for i in range(len(mask)):
             if not mask[i]: continue
             image = images[i].reshape(max_y[i]-min_y[i]+1, max_x[i]-min_x[i]+1)
+            # if len(tracks) < 50:
+                # print(len(tracks), min_x[i], max_x[i], min_y[i], max_y[i])
+                # print(len(tracks), image.shape)
             tracks.append(process_track(image))
             extra.append(energies[i])
 
@@ -63,7 +66,7 @@ if __name__ == "__main__":
         (
             (
                 "../../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits",
-                "../../data/01002601/my_event_l2/ixpe01002601_det1_l2.fits",
+                "../../data/01002601/event_nn/ixpe01002601_det1_nn.fits",
                 None, (301.39749, 303.70573, -65.854246)
             ),
         ),
@@ -74,10 +77,33 @@ if __name__ == "__main__":
         (
             (
                 "../../data/01002601/event_l1/ixpe01002601_det1_evt1_v02.fits",
-                "../../data/01002601/my_event_l2/ixpe01002601_det1_l2.fits",
+                "../../data/01002601/event_nn/ixpe01002601_det1_nn.fits",
                 None, (301.39749, 303.70573, 10)
             ),
         ),
         "source0",
         ncut=50_000
     )
+
+    # make_dataset(
+    #     (
+    #         (
+    #             "../../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits",
+    #             "../../data/02008801/nobkgcorr/ixpe02008801_det1_nn.fits",
+    #             None, (297.5, 299, -65.854246)
+    #         ),
+    #     ),
+    #     "background0",
+    #     ncut=10_000
+    # )
+    # make_dataset(
+    #     (
+    #         (
+    #             "../../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits",
+    #             "../../data/02008801/nobkgcorr/ixpe02008801_det1_nn.fits",
+    #             None, (297.5, 299, 8)
+    #         ),
+    #     ),
+    #     "source0",
+    #     ncut=10_000
+    # )
