@@ -24,6 +24,20 @@ unset CFLAGS CXXFLAGS FFLAGS LDFLAGS CHUNK
 export PREFIX="$PWD/"
 
 case $SOURCE in 
+    grb)
+        export OBS='02250101'
+        export SETNUM=$OBS
+        export VERSION1="03"
+        export VERSION2="02"
+        export VERSION3="02"
+        export ATTNUM1="11"
+        export ATTNUM2="12"
+        export ATTNUM3="11"
+        export PAYNUM="08"
+        export PPGNUM="01"
+        export SRC_RA=288.2645833
+        export SRC_DEC=19.7736111
+        ;;
     andrew1)
         export OBS='03006701'
 	    export SETNUM='03006799'
