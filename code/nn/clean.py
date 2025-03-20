@@ -65,7 +65,7 @@ def display_clean(infile, outfile):
         ax.set_aspect("equal")
     fig.savefig("figs/clean.png")
 
-def clean_background(l1file, infile, outfile):
+def clean_background(l1file, infile, outfile, mask=None):
     if not os.path.exists(l1file):
         raise Exception(f"Could not find the l1 file {l1file}")
     if not os.path.exists(infile):
@@ -100,8 +100,12 @@ def clean_background(l1file, infile, outfile):
     probs = model(tracks.reshape(shape)).numpy()
     probabilities = np.concatenate([probabilities, probs[:,0]])
 
-    mask = probabilities < 0.5
-    mask_file(infile, outfile, mask)
+    if mask is None:
+        write_weights(infile, outfile, probabilities)
+
+    else:
+        evt_mask = probabilities < mask
+        mask_file(infile, outfile, evt_mask)
 
 def mask_file(infile, outfile, mask):
     '''Mask the file by removing events
@@ -123,16 +127,38 @@ def mask_file(infile, outfile, mask):
         # Save to a new file
         hdul_copy.writeto(outfile, overwrite=True)
 
+def write_weights(infile, outfile, weights):
+    '''Mask the file by removing events
+    # Arguments
+        * infile: file name which will be masked
+        * output file: file which will be written to. If the file already exists, it will be overwritten.
+        * mask: boolean array created by `get_mask`.'''
+    
+    with fits.open(infile) as hdul:
+        if len(hdul[1].data) != len(weights):
+            raise Exception("The L1 file you provided does not have the same number of events as the file you are masking..")
+
+        # Copy all the file HDUs
+        hdul_copy = fits.HDUList([hdu.copy() for hdu in hdul])
+
+        bg_prob_col = fits.Column(name='BG_PROB', format='E', array=weights)
+        new_cols = hdul[1].columns + bg_prob_col
+        hdul_copy[1] = fits.BinTableHDU.from_columns(new_cols, header=hdul[1].header)
+
+        # Save to a new file
+        hdul_copy.writeto(outfile, overwrite=True)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
                 prog='clean',
                 description='Removes background particles from IXPE datasets')
-    parser.add_argument("l1")
-    parser.add_argument("infile")
-    parser.add_argument("outfile")
+    parser.add_argument("l1", help="Name of the input l1 file")
+    parser.add_argument("infile", help="Name of the input l2 file")
+    parser.add_argument("outfile", help="Name of the output file")
+    parser.add_argument("--thresh", default=None, help="Threshold background probability to cut(0-1)")
 
     args = parser.parse_args()
 
-    # clean_background(args.l1, args.infile, args.outfile)
-    display_clean(args.infile, args.outfile)
+    clean_background(args.l1, args.infile, args.outfile, args.thresh)
+    # display_clean(args.infile, args.outfile)

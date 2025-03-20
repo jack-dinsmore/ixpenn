@@ -12,7 +12,7 @@ python ixpe_merge.py ../../data/02250101/event_nn_bkg/* ../../data/02250101/even
 
 
 # mkdir ../../data/02008801/event_nn_bkg
-python clean.py ../../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det1_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det1_nn.fits
-python clean.py ../../data/02008801/event_l1/ixpe02008801_det2_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det2_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det2_nn.fits
-python clean.py ../../data/02008801/event_l1/ixpe02008801_det3_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det3_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det3_nn.fits
-python ixpe_merge.py ../../data/02008801/event_nn_bkg/* ../../data/02008801/event_nn_bkg/ixpe02008801_all_nn.fits
+# python clean.py ../../data/02008801/event_l1/ixpe02008801_det1_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det1_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det1_nn.fits
+# python clean.py ../../data/02008801/event_l1/ixpe02008801_det2_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det2_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det2_nn.fits
+# python clean.py ../../data/02008801/event_l1/ixpe02008801_det3_evt1_v01.fits ../../data/02008801/nobkgcorr/ixpe02008801_det3_nn.fits ../../data/02008801/event_nn_bkg/ixpe02008801_det3_nn.fits
+# python ixpe_merge.py ../../data/02008801/event_nn_bkg/* ../../data/02008801/event_nn_bkg/ixpe02008801_all_nn.fits
