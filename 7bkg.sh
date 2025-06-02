@@ -3,8 +3,8 @@
 #SBATCH -ologs/bkg-%j.log
 #SBATCH --partition=kipac
 #SBATCH --mem=16GB
-#SBATCH --job-name=unasp
-#SBATCH -t 08:00:00
+#SBATCH --job-name=bkg
+#SBATCH -t 02:00:00
 
 source source_select.sh
 source $PREFIX"src/mlbg.sh"

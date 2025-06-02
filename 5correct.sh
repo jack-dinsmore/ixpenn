@@ -14,13 +14,13 @@ export HEADASNOQUERY=
 export HEADASPROMPT=/dev/null
 
 export DET='1'
-source src/correct-one.sh
-source src/centroid-one.sh
+bash src/correct-one.sh
+bash src/centroid-one.sh
 
 export DET='2'
-source src/correct-one.sh
-source src/centroid-one.sh
+bash src/correct-one.sh
+bash src/centroid-one.sh
 
 export DET='3'
-source src/correct-one.sh
-source src/centroid-one.sh
+bash src/correct-one.sh
+bash src/centroid-one.sh

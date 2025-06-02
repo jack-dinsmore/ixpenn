@@ -6,6 +6,15 @@ in_file = sys.argv[1]
 nn_file = sys.argv[2]
 out_file = sys.argv[3]
 
+# Files to cut the last event of
+cut_end_file = [
+    "/home/groups/rwr/ixpenn/data/02007999/recon/ixpe02007901_det2_evt1_v01_recon_gain_corr_map.fits"
+]
+
+print(in_file)
+print(nn_file)
+print(out_file)
+
 #os.system(f"ftpaste {in_file}'[EVENTS][col -DETPHI2;]' {nn_file}'[1][col NN_PHI, DETPHI2==NN_PHI; NN_WEIGHT, W_NN==NN_WEIGHT; P_TAIL; FLAG]' {out_file} history=YES clobber=True")
 
 with fits.open(nn_file) as hdul:
@@ -25,6 +34,18 @@ print([np.nanpercentile(pi, i) for i in range(0, 105, 10)])
 unwrapped_flags = np.zeros((len(flag), 16), bool)
 for i in range(16):
     unwrapped_flags[:,i] = (flag & (1 << i)) != 0
+
+if in_file in cut_end_file:
+    nn_phi = nn_phi[:-1]
+    nn_weight = nn_weight[:-1]
+    xy_nn_abs = xy_nn_abs[:-1]
+    abs_x = abs_x[:-1]
+    abs_y = abs_y[:-1]
+    pi = pi[:-1]
+    nn_energy = nn_energy[:-1]
+    p_tail = p_tail[:-1]
+    unwrapped_flags = unwrapped_flags[:-1,:]
+
 
 shutil.copy(in_file, out_file)
 

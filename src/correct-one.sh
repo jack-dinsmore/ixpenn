@@ -30,11 +30,17 @@ ixpechrgcorr \
 
 #######
 
+if [ -z "${PPGNUM}" ]; then
+    PKGAINFILE="CALDB"
+else
+    python3 src/gain_manip.py $DATA_FOLDER"auxil/ixpe"$OBS"_det"$DET"_ppg1_v"$PPGNUM".fits"
+    PKGAINFILE=$DATA_FOLDER"auxil/ixpe"$OBS"_det"$DET"_ppg1_v"$PPGNUM"_manip.fits"
+fi
 ixpegaincorrpkmap \
     infile=$DATA_FOLDER"$FILENAME"_recon_gain_corr.fits \
     outfile=$DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits \
     clobber=True \
-    pkgainfile=$DATA_FOLDER"auxil/ixpe"$OBS"_det"$DET"_ppg1_v"$PPGNUM".fits" \
+    pkgainfile=$PKGAINFILE \
     hvgainfile=CALDB \
     logfile=NONE
 
@@ -97,12 +103,17 @@ faddcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] $DATA_FOLDER"
 
 ##############
 
+echo "start det2j"
+echo "$DATA_FOLDER"hk/ixpe"$OBS"_det"$DET"_att_v"$ATTNUM".fits
+
 ## Coordinate transformations.
 ixpedet2j2000 \
     infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits \
     outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000.fits \
     attfile_in="$DATA_FOLDER"hk/ixpe"$OBS"_det"$DET"_att_v"$ATTNUM".fits \
     clobber=True
+
+echo "stop det2j"
 
 ##############
 
@@ -131,6 +142,7 @@ cp $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000.fits $DATA_FOLDER"$FILENA
 
 echo "Starting IXPEBOOMDRIFTCORR"
 
+echo $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd.fits
 ixpeboomdriftcorr infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_int.fits\
     outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj_j2000_bd.fits\
     adc0110_file=$DATA_FOLDER"hk/ixpe"$OBS"_all_adc_0110_v"$ADCNUM".fits"\

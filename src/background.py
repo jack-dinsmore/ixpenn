@@ -5,7 +5,7 @@ import numpy as np
 import sys, os
 from astropy.io import fits
 
-STATUS2_MASK = np.array([c == '0' for c in "0x0000000000x00x"])
+STATUS2_MASK = np.array([c == '0' for c in "0x0000000000000x"])
 
 def get_mask(l1_filename, pk_map_file, recon_file=None):
     """Returns an np array which contains the mask of background events.
