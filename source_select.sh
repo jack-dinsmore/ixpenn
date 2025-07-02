@@ -13,7 +13,8 @@
 
 # Make sure you end your code block in a double semicolon.
 
-export HEADAS=/home/groups/rwr/jtd/heasoft-6.34/x86_64-pc-linux-gnu-libc2.17
+#export HEADAS=/home/groups/rwr/jtd/heasoft-6.34/x86_64-pc-linux-gnu-libc2.17
+export HEADAS=/home/groups/rwr/jtd/heasoft-6.35.2/x86_64-pc-linux-gnu-libc2.17
 export CALDB=/home/groups/rwr/jtd/caldb
 export CC=/share/software/user/open/gcc/9.1.0/bin/gcc
 export CXX=/share/software/user/open/gcc/9.1.0/bin/g++
@@ -24,6 +25,16 @@ unset CFLAGS CXXFLAGS FFLAGS LDFLAGS CHUNK
 export PREFIX="$PWD/"
 
 case $SOURCE in
+    lh)
+        export OBS="04001301"
+        export SETNUM=$OBS
+        export VERSION="02"
+        export ATTNUM="02"
+        export PAYNUM="02"
+        export ADCNUM="02"
+        export SRC_RA=165.4424525
+        export SRC_DEC=-61.0200908
+        ;;
     mrk4211)
         export OBS="01003701"
         export SETNUM=$OBS
@@ -60,7 +71,7 @@ case $SOURCE in
         export VERSION="02"
         export ATTNUM="02"
         export PAYNUM="02"
-        #export PPGNUM="02"
+        export PPGNUM="02"
         export ADCNUM="02"
         export SRC_RA=281.6037500
         export SRC_DEC=-2.9750000
@@ -75,7 +86,8 @@ case $SOURCE in
         export ATTNUM2="12"
         export ATTNUM3="11"
         export PAYNUM="08"
-        #export PPGNUM="01"
+        export PPGNUM="01"
+        export ADCNUM="09"
         export SRC_RA=288.2645833
         export SRC_DEC=19.7736111
         ;;
@@ -85,7 +97,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=260.8466667
         export SRC_DEC=-28.6325000
         ;;
@@ -96,7 +108,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=260.8466667
         export SRC_DEC=-28.6325000
         ;;
@@ -107,7 +119,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='02'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=260.8466667
         export SRC_DEC=-28.6325000
         ;;
@@ -118,7 +130,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=329.7170833
         export SRC_DEC=-30.2255556
         ;;
@@ -129,7 +141,8 @@ case $SOURCE in
         export VERSION='02'
         export ATTNUM='03'
         export PAYNUM='03'
-        #export PPGNUM='03'
+        export PPGNUM='03'
+        export ADCNUM='03'
         export SRC_RA=257.1954167
         export SRC_DEC=-40.1477778
         ;;
@@ -140,7 +153,7 @@ case $SOURCE in
         export VERSION='03'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=257.1954167
         export SRC_DEC=-40.1477778
         ;;
@@ -151,7 +164,7 @@ case $SOURCE in
         export VERSION='02'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=257.1954167
         export SRC_DEC=-40.1477778
         ;;
@@ -164,7 +177,7 @@ case $SOURCE in
         export VERSION3='02'
         export ATTNUM='03'
         export PAYNUM='03'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export ADCNUM='03'
         export SRC_RA=85.0450000
         export SRC_DEC=-69.3316667
@@ -178,7 +191,7 @@ case $SOURCE in
         export VERSION3='02'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=85.0450000
         export SRC_DEC=-69.3316667
         ;;
@@ -191,7 +204,7 @@ case $SOURCE in
         export VERSION3='01'
         export ATTNUM='03'
         export PAYNUM='02'
-        #export PPGNUM='03'
+        export PPGNUM='03'
         export ADCNUM='02'
         export SRC_RA=85.0450000
         export SRC_DEC=-69.3316667
@@ -203,7 +216,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -214,7 +227,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -225,7 +238,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -239,10 +252,11 @@ case $SOURCE in
         export ATTNUM1='15'
         export ATTNUM2='14'
         export ATTNUM3='14'
+        export ADCNUM='04'
         export PAYNUM1='04'
         export PAYNUM2='03'
         export PAYNUM3='03'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -257,10 +271,11 @@ case $SOURCE in
         export ATTNUM1='15'
         export ATTNUM2='15'
         export ATTNUM3='14'
+        export ADCNUM='04'
         export PAYNUM1='04'
         export PAYNUM2='03'
         export PAYNUM3='03'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -275,10 +290,11 @@ case $SOURCE in
         export ATTNUM1='15'
         export ATTNUM2='15'
         export ATTNUM3='14'
+        export ADCNUM='04'
         export PAYNUM1='04'
         export PAYNUM2='03'
         export PAYNUM3='03'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=266.5700000
         export SRC_DEC=-28.8900000
         ;;
@@ -300,7 +316,7 @@ case $SOURCE in
         export VERSION='02'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='02'
+        export PPGNUM='02'
         export SRC_RA=275.9191667
         export SRC_DEC=-30.3611111
         ;;
@@ -311,7 +327,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=275.9191667
         export SRC_DEC=-30.3611111
         ;;
@@ -323,7 +339,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=262.9341667
         export SRC_DEC=-16.9613889
         ;;
@@ -334,7 +350,7 @@ case $SOURCE in
         export VERSION='02'
         export ATTNUM='02'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=84.9116667
         export SRC_DEC=-69.7433333
         ;;
@@ -345,7 +361,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=230.1700000
         export SRC_DEC=-57.1669444
         ;;
@@ -356,7 +372,7 @@ case $SOURCE in
         export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
         export SRC_RA=244.9791667
         export SRC_DEC=-15.6400000
         ;;
@@ -371,166 +387,27 @@ case $SOURCE in
         ;;
 
     crab1)
-        export CHUNK='01001010'
-        export OBS='01001001'
-        export SETNUM='01001099'
-        export VERSION='00'
-        export ATTNUM='12'
-        export PAYNUM1='09'
-        export PAYNUM2='10'
-        export PAYNUM3='08'
-        #export PPGNUM='01'
+        export CHUNK='02006010'
+        export OBS='02006001'
+        export SETNUM=$OBS
+        export VERSION='02'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
         ;;
     
     crab2)
-        export CHUNK='01001020'
-        export OBS='01001001'
-        export SETNUM='01001099'
-        export VERSION='00'
-        export ATTNUM='12'
-        export PAYNUM1='09'
-        export PAYNUM2='10'
-        export PAYNUM3='08'
-        #export PPGNUM='01'
-        ;;
-
-    crab3)
-        export CHUNK='01001030'
-        export OBS='01001001'
-        export SETNUM='01001099'
-        export VERSION='00'
-        export ATTNUM='12'
-        export PAYNUM1='09'
-        export PAYNUM2='10'
-        export PAYNUM3='08'
-        #export PPGNUM='01'
-        ;;
-
-
-    crab4)
-        export CHUNK='01001040'
-        export OBS='01001002'
-        export SETNUM='01001099'
-        export VERSION='00'
-        export ATTNUM='11'
-        export PAYNUM1='08'
-        export PAYNUM2='09'
-        export PAYNUM3='07'
-        #export PPGNUM='01'
-        ;;
-    
-    crab5)
-        export CHUNK='01001050'
-        export OBS='01001002'
-        export VERSION='00'
-        export SETNUM='01001099'
-        export ATTNUM='11'
-        export PAYNUM1='08'
-        export PAYNUM2='09'
-        export PAYNUM3='07'
-        #export PPGNUM='01'
-        ;;
-
-    crab6)
-        export CHUNK='01001060'
-        export OBS='01001002'
-        export VERSION='00'
-        export SETNUM='01001099'
-        export ATTNUM='11'
-        export PAYNUM1='08'
-        export PAYNUM2='09'
-        export PAYNUM3='07'
-        #export PPGNUM='01'
-        ;;
-
-    crab7)
-        export CHUNK='02001010'
-        export OBS='02001001'
-        export VERSION='00'
-        export ATTNUM='01'
-        export SETNUM='02001099'
-        export PAYNUM='01'
-        #export PPGNUM='01'
-        ;;
-
-    crab8)
-        export CHUNK='02001020'
-        export OBS='02001001'
-        export VERSION='00'
-        export SETNUM='02001099'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='01'
-        ;;
-
-    crab9)
-        export CHUNK='02001030'
-        export OBS='02001001'
-        export SETNUM='02001099'
-        export VERSION='00'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='01'
-        ;;
-
-    crab10)
-        export CHUNK='02001040'
-        export OBS='02001002'
-        /export VERSION='00'
-        export SETNUM='02001099'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='02'
-        ;;
-
-    crab11)
-        export CHUNK='02001050'
-        export OBS='02001002'
-        export VERSION='00'
-        export SETNUM='02001099'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='02'
-        ;;
-
-    crab12)
-        export CHUNK='02001060'
-        export OBS='02001002'
-        export VERSION='00'
-        export SETNUM='02001099'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='02'
-        ;;
-
-    crab13)
-        export CHUNK='02006010'
-        export OBS="02006001"
-        export SETNUM=$OBS
-        export VERSION='00'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='01'
-        ;;
-
-    crab14)
         export CHUNK='02006020'
-        export OBS="02006001"
+        export OBS='02006001'
         export SETNUM=$OBS
-        export VERSION='00'
+        export VERSION='02'
         export ATTNUM='01'
         export PAYNUM='01'
-        #export PPGNUM='01'
-        ;;
-    
-    crab15)
-        export CHUNK='02006030'
-        export OBS="02006001"
-        export SETNUM=$OBS
-        export VERSION='00'
-        export ATTNUM='01'
-        export PAYNUM='01'
-        #export PPGNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
         ;;
 
     *)

@@ -98,8 +98,9 @@ echo -e "TLMIN44 = 0\nTLMAX44 = 600\nTLMIN45 = 0\nTLMAX45 = 600" >> $DATA_FOLDER
 fthedit $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits["EVENTS"] @$DATA_FOLDER"$FILENAME"wcs.lis
 
 # Delete the events with the wrong status
+echo "STATUS COLUMN CHECKING"
 fdelcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] STATUS2 no yes
-faddcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] $DATA_FOLDER""$FILENAME"_recon.fits[EVENTS]" STATUS2
+faddcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] $DATA_FOLDER""$FILENAME".fits[EVENTS]" STATUS2
 
 ##############
 
@@ -123,7 +124,6 @@ if [ -z "${SRC_RA}" ]; then
     echo "WARNING: You have not set the source ra. The code will fail. Please set the source RA in source_select"
     echo
     echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    exit
 fi
 
 echo Using coordinates $SRC_RA $SRC_DEC
