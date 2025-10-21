@@ -2,6 +2,13 @@ data/*
 !data/_
 /logs
 *.log
+*.swp
 *.lis
-test/
 NONE
+
+test/
+old/
+kaitlyn/
+sim.sh
+5.5centroid.sh
+

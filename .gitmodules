@@ -4,3 +4,6 @@
 [submodule "leakagelib"]
 	path = leakagelib
 	url = https://github.com/jtdinsmore/leakagelib.git
+[submodule "IXPEML"]
+	path = IXPEML
+	url = git@github.com:jack-dinsmore/IXPEML.git

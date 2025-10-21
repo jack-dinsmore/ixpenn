@@ -22,6 +22,8 @@ pip install -v --disable-pip-version-check --no-build-isolation --no-cache-dir .
 ```
 Note that `pip install apex` does not work; the PyPI version of `apex` is an unrelated module.
 
+4. Change the flags at the start of `source_select.sh`. These flags specify the locations of various compilers and your HEASarc installation.
+
 
 # Instructions
 
@@ -47,7 +49,7 @@ If you are only interested in doing moments processing, pass the `USE_MOM` flag 
 
 6. *Run boom drift correction (optional)*. By default, the pipeline uses `ixpeaspcorr` to remove boom drift. For some observations (e.g. faint or extended ones), `ixpeboomdriftcorr` is better. `6unasp.sh` runs `ixpeboomdriftcorr`. It also makes the uncorrected files available. This will take a few minutes.
 
-7. *Generate particle characters (optional)*. Run `7bkg.sh` to use the LeakageLib background character neural net to assign background weights. You can also do this yourself with the program available in leakagelib. This will take about half an hour. By default, this will run on the `ixpeaspcorr` files. If you wish to assign background characters to the `boomdriftcorr` files, run with the flag `USE_BOOM=a` using the same syntax as `USE_MOM`, mentioned above.
+7. *Generate particle characters (optional)*. Run `7bkg.sh` to use the LeakageLib particle character neural net to assign particle weights. You can also do this yourself with the program available in leakagelib. This will take about half an hour. By default, this will run on the `ixpeaspcorr` files. If you wish to assign particle characters to the `boomdriftcorr` files, run with the flag `USE_BOOM=a` using the same syntax as `USE_MOM`, mentioned above.
 
 8. *Check the logs for errors*. Run `error_check.sh LOG_FILES` at any point, replacing `LOG_FILES` with the log files you'd like to check for errors. This can be done manually of course, but since the logs are long it can be easy to miss the messages.
 

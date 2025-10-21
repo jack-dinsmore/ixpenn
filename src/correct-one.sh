@@ -80,7 +80,7 @@ if [ -z "${USE_MOM}" ]; then
         infile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w.fits \
         outfile=$DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits \
         clobber=True \
-        spmodfile=/home/groups/rwr/jtd/IXPEML/caldb/spmod/ixpe_d"$DET"_20170101_spmod_nn.fits \
+        spmodfile=$PREFIX"/IXPEML/caldb/spmod/ixpe_d"$DET"_20170101_spmod_nn.fits" \
         logfile=NONE
 else
     # MOM

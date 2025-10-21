@@ -10,7 +10,7 @@
 source source_select.sh
 source $PREFIX"src/mlnn.sh"
 source $HEADAS/headas-init.sh; source $CALDB/software/tools/caldbinit.sh
-cd /home/groups/rwr/jtd/IXPEML
+cd IXPEML
 
 export DET='1'
 source $PREFIX"src/filenames.sh"
