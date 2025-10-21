@@ -64,7 +64,7 @@ esac
 export RAW_FILENAME="event_l1/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION
 echo Using file $RAW_FILENAME
 export FILENAME="recon/ixpe"$CHUNK"_det"$DET"_evt1_v"$FILE_VERSION # recon
-export NN_PREPATH=$(python3 src/get_nn_path.py)
+export NN_PREPATH=$(python3 $PREFIX/src/get_nn_path.py)
 export NN_FOLDER=$DATA_FOLDER'recon/'$SOURCE'-det'$DET/
 export NN_FILE=$PREFIX'/IXPEML/'$NN_PREPATH'data_'$SETNUM'_recon_'$SOURCE'-det'$DET'___'$SOURCE'-det'$DET'__ensemble.fits'
 
