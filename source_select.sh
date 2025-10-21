@@ -4,12 +4,16 @@
 
 # 1. Choose a name YOUR_SOURCE_NAME and make a new block beginning with YOUR_SOURCE_NAME)
 # 2. Fill out the following fields
-#   - OBS: Observation ID of the .fits file within event_l1.
-#   - SETNUM: the observation set ID (the name of the directory containing the auxil, hk, event_l1, etc. directories). Usually the same as $OBS unless you used split.sh to change $OBS, or if the observation came in multiple chunks.
-#   - VERSION: the vXX version number of these event_l1 fits files. Zero if you used split.sh.
-#   - ATTNUM: the version of the *_att_* files in the hk directory (usually 01). If the different detectors have different attitude numbers, you can instead use ATTNUM1, ATTNUM2, and ATTNUM3 to set different numbers for detectors 1, 2, and 3. Do not use both ATTNUM and the numbered ATTNUM# variables.
-#   - PAYNUM: the version of the payload file. Again, PAYNUM1, 2, and 3 are available if the versions differ between detectors. The payload files begin with *_pay_132X_vYY*, where X is the detector
-#   - PAYNUM2 and PAYNUM3: the same for detectors 2 and 3.
+#   - OBS: Observation ID. (e.g. 01001001)
+#   - SETNUM: The observation set ID (the name of the directory containing the auxil, hk, event_l1, directories). Usually the same as $OBS unless the observation came in multiple parts (e.g. 01001099).
+#   - CHUNK: Only necessary if you split the observation files into smaller chunks. If you did, you must create a source for each chunk, and each chunk's file should be named with a new ID. CHUNK should be the new obs ID, OBS should be the original ID, and SETNUM should be the original set number. E.g. if you split the 01001001 epoch of the observation set 01001099 into two chunks: 01001101 and 01001201, then CHUNK is 01001101 for the first source and 01001201 for the second source, OBS is 01001001, and SETNUM is 01001099.
+#   - VERSION: the vXX version number of these event_l1 fits files. Zero if you used split.sh. If the different detectors have different versions, use VERSION1, VERSION2, VERSION3. Do not use both VERSION and the numbered VERSION# variables.
+#   - ATTNUM: the version of the *_att_* files in the hk directory. Like VERSION, ATTNUM# are available if the version differs between detectors.
+#   - PAYNUM: the version of the payload file. The payload files begin with *_pay_132X_vYY*, where X is the detector. Like VERSION, PAYNUM# are available if the version differs between detectors.
+#   - ADCNUM: the version of the *_adc_* files in the hk directory.
+#   - PPGNUM: the version of the _ppg1_ files in the auxil directory.
+#   - SRC_RA: Source right ascention (used for ixpeboomdriftcorr)
+#   - SRC_DEC: Source declination (used for ixpeboomdriftcorr)
 
 # Make sure you end your code block in a double semicolon.
 
