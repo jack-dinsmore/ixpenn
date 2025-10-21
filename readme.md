@@ -28,9 +28,13 @@ Note that `pip install apex` does not work; the PyPI version of `apex` is an unr
 # Instructions
 
 0. *Preparation*.
+
 * Download the IXPE observation to the `data/` directory. The `hk`, `auxil`, and `event_l1` directories are all necessary; `event_l2` is optional.
+
 * Unzip all files, e.g. with `gunzip`.
+
 * If each fits file in `event_l1` is more than 2 million counts (check this with the HEAsoft `ftlist` tool), consider splitting them into 1-2 million count chunks to reduce memory overhead. You should use "chunk" names that are distinct from the observation number or the set number, and this should be reflected in `source_select.sh`.
+
 * Update `source_select.sh` with the metadata for this source. That file contains instructions on what metadata is necessary.
 
 1. *Reconstruct the event data*. Run `1init.sh` using the following command, where `YOUR_SOURCE_NAME` is replaced with the name you chose to use in `source_select.sh`. This might take an hour or so.
