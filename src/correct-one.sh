@@ -97,10 +97,10 @@ sed -i 's/36 /44 /;s/37 /45 /' $DATA_FOLDER"$FILENAME"wcs.lis
 echo -e "TLMIN44 = 0\nTLMAX44 = 600\nTLMIN45 = 0\nTLMAX45 = 600" >> $DATA_FOLDER"$FILENAME"wcs.lis
 fthedit $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits["EVENTS"] @$DATA_FOLDER"$FILENAME"wcs.lis
 
-# Delete the events with the wrong status
+# Delete the wrong status column
 echo "STATUS COLUMN CHECKING"
 fdelcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] STATUS2 no yes
-faddcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] $DATA_FOLDER""$FILENAME".fits[EVENTS]" STATUS2
+faddcol $DATA_FOLDER"$FILENAME"_recon_nn_stokes_w_adj.fits[EVENTS] $DATA_FOLDER""$FILENAME"_recon.fits[EVENTS]" STATUS2
 
 ##############
 

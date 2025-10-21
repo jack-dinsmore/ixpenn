@@ -18,4 +18,4 @@ echo Running file $FILE_CORE
 
 echo
 
-python3 ixpe-bg/code/nn/clean.py $L1_FILE "$FILE_CORE".fits "$FILE_CORE"_bkg.fits
+python3 leakagelib/flag_background.py "$FILE_CORE".fits $L1_FILE "$FILE_CORE"_bkg.fits

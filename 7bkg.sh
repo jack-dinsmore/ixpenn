@@ -10,12 +10,12 @@ source source_select.sh
 source $PREFIX"src/mlbg.sh"
 
 export DET='1'
-source src/bkg-mine-one.sh
+source src/bkg-weight-one.sh
 
 
 export DET='2'
-source src/bkg-mine-one.sh
+source src/bkg-weight-one.sh
 
 
 export DET='3'
-source src/bkg-mine-one.sh
+source src/bkg-weight-one.sh

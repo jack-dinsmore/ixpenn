@@ -1,3 +1,6 @@
 [submodule "ixpe-bg"]
 	path = ixpe-bg
 	url = https://github.com/jack-dinsmore/ixpe-bg.git
+[submodule "leakagelib"]
+	path = leakagelib
+	url = https://github.com/jtdinsmore/leakagelib.git

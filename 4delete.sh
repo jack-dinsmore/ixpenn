@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH -o logs/delete-%j.log
 #SBATCH --job-name=delete
+#SBATCH --partition=kipac
 #SBATCH --time=2:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=8G

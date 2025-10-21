@@ -28,11 +28,6 @@ python3 -u src/hack-fits.py $DATA_FOLDER"$FILENAME"'_recon.fits'
 
 ########
 
-# Remove all the old raw data
-rm $DATA_FOLDER"$FILENAME".fits
-
-########
-
 # Remove the NN track records
 rm -r $NN_FOLDER
 

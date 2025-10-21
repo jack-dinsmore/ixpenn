@@ -65,13 +65,24 @@ case $SOURCE in
         export SRC_RA=166.1137500
         export SRC_DEC=38.2088889
         ;;
-    kes75)
+    kes751)
         export OBS='03001901'
         export SETNUM=$OBS
         export VERSION="02"
         export ATTNUM="02"
         export PAYNUM="02"
         export PPGNUM="02"
+        export ADCNUM="02"
+        export SRC_RA=281.6037500
+        export SRC_DEC=-2.9750000
+        ;;
+    kes752)
+        export OBS='04002301'
+        export SETNUM=$OBS
+        export VERSION="07"
+        export ATTNUM="02"
+        export PAYNUM="02"
+        export PPGNUM="05"
         export ADCNUM="02"
         export SRC_RA=281.6037500
         export SRC_DEC=-2.9750000
@@ -154,6 +165,7 @@ case $SOURCE in
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='02'
+        export ADCNUM='01'
         export SRC_RA=257.1954167
         export SRC_DEC=-40.1477778
         ;;
@@ -403,6 +415,120 @@ case $SOURCE in
         export OBS='02006001'
         export SETNUM=$OBS
         export VERSION='02'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab3)
+        export CHUNK='02001010'
+        export OBS='02001001'
+        export SETNUM=02001099
+        export VERSION1='03'
+        export VERSION2='02'
+        export VERSION3='02'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab4)
+        export CHUNK='02001020'
+        export OBS='02001001'
+        export SETNUM=02001099
+        export VERSION1='03'
+        export VERSION2='02'
+        export VERSION3='02'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab5)
+        export CHUNK='02001030'
+        export OBS='02001001'
+        export SETNUM=02001099
+        export VERSION1='03'
+        export VERSION2='02'
+        export VERSION3='02'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab6)
+        export CHUNK='04001110'
+        export OBS='04001101'
+        export SETNUM=04001199
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab7)
+        export CHUNK='04001120'
+        export OBS='04001101'
+        export SETNUM=04001199
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab8)
+        export CHUNK='04001130'
+        export OBS='04001101'
+        export SETNUM=04001199
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab9)
+        export CHUNK='04001140'
+        export OBS='04001102'
+        export SETNUM=04001199
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab10)
+        export CHUNK='04001150'
+        export OBS='04001102'
+        export SETNUM=04001199
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=83.6331250
+        export SRC_DEC=22.0145000
+        ;;
+
+    crab11)
+        export CHUNK='04001160'
+        export OBS='04001102'
+        export SETNUM=04001199
+        export VERSION='01'
         export ATTNUM='01'
         export PAYNUM='01'
         export PPGNUM='01'
