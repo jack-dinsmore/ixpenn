@@ -1,0 +1,22 @@
+# NN requirements (steps 2 and 3)
+python == 3.6
+astropy == 4.0.1
+h5py == 3.1.0
+numpy == 1.18.1
+scipy == 1.4.1
+torch == 1.4.1+cu111
+torchvision == 0.7.1+cu111
+scikit-learn==0.24.2
+multiprocess==0.70.12.2
+setuptools==39.2.0
+
+# Processing requirements (steps 1, 4, 5, and 6)
+python == 3.9
+numpy == 1.24.2
+matplotlib == 3.7.1
+scipy == 1.10.1
+
+
+# Background weighting requirements (step 7)
+python == 3.12.1
+tensorflow == 2.18.9

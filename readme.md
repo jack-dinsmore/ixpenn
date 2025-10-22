@@ -8,13 +8,13 @@ Jack Dinsmore created the level1 to level2 pipeline and maintains this directory
 
 # Installation
 
-Thanks to Peter Lindholm and Kaitlyn Karpovich for helping to bug test the installation process. This software is compatible with HEASoft version 6.32.1. Below are the installation instructions for the pipeline
+Thanks to Peter Lindholm and Kaitlyn Karpovich for helping to bug test the installation process.Below are the installation instructions for the pipeline.
 
-1. (Sherlock users skip this step) Many python modules are listed in src/mlnn.sh, src/mlixpe.sh, and src/mlbg.sh. If you have a computing cluster, replace the lines in these files with the appropriate loading statements for your cluster. If not, pip install each module and delete the text in these files.
+1. This pipeline requires 3 python environments to run: one for the neural net processing (steps 2 and 3), one for IXPE level1 to level2 processing (steps 1, 4, 5, and 6), and one for adding neural net particle weights (step 7). The requirements are listed in `requirements.txt`. The pipeline runs `src/mlnn.sh`, `src/mlixpe.sh`, and `src/mlbg.sh` to load these environments, respectively. If you are using conda, replace the text in these files to `conda activate` your environments. If you are using a cluster, use module load statements similar to the files' current content. If you are using Stanford's Sherlock cluster, you do not need to change the files.
 
-2. Pip install `scikit-learn` with version 0.24.2, `multiprocess` with version 0.70.12.2, and `setuptools` with version 39.2.0. These are necessary for neural net processing. Make sure to do this in the same python environment as the one that contains the python modules you installed in step one. If you skipped step one, run src/mlnn.sh to load the environment.
+Note to Sherlock users: the `src/ml*` files are set up for Sherlock and you do not need to change them. However, you should pip install `scikit-learn` with version 0.24.2, `multiprocess` with version 0.70.12.2, and `setuptools` with version 39.2.0.
 
-3. Install `apex` via git by running the following in your home directory
+2. Install `apex` via git by running the following in your home directory
 ```bash
 git clone https://github.com/NVIDIA/apex.git
 git checkout 5ba7af18f0cdb228b00ee7110236dc7c1b23fc35
