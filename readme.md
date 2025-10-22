@@ -18,6 +18,7 @@ Note to Sherlock users: the `src/ml*` files are set up for Sherlock and you do n
 ```bash
 git clone https://github.com/NVIDIA/apex.git
 git checkout 5ba7af18f0cdb228b00ee7110236dc7c1b23fc35
+cd apex
 pip install -v --disable-pip-version-check --no-build-isolation --no-cache-dir ./
 ```
 Note that `pip install apex` does not work; the PyPI version of `apex` is an unrelated module.
