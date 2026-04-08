@@ -1,4 +1,4 @@
-export DATA_FOLDER=$PREFIX"data/"$SETNUM"/"
+export DATA_FOLDER=$PREFIX"/data/"$SETNUM"/"
 if [ -z ${VERSION+x} ]; then
     # Version variable is unset
     case $DET in

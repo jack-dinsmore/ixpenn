@@ -48,9 +48,15 @@ python3 src/test.py $DATA_FOLDER"$FILENAME"_recon_gain_corr_map.fits
 
 #######
 
+if [[ -n "${NOE+x}" ]]; then
+    USE_NN_ENERGIES="no"
+else
+    USE_NN_ENERGIES="yes"
+fi
+
 if [ -z "${USE_MOM}" ]; then
     # NN
-    python3 src/write.py $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $NN_FILE $DATA_FOLDER"$FILENAME"_recon_nn.fits
+    python3 src/write.py $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $NN_FILE $DATA_FOLDER"$FILENAME"_recon_nn.fits $USE_NN_ENERGIES
 else
     # MOM
     cp $DATA_FOLDER"$FILENAME"'_recon_gain_corr_map.fits' $DATA_FOLDER"$FILENAME"_recon_nn.fits

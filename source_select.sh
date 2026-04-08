@@ -4,8 +4,8 @@
 
 # 1. Choose a name YOUR_SOURCE_NAME and make a new block beginning with YOUR_SOURCE_NAME)
 # 2. Fill out the following fields
-#   - OBS: Observation ID. (e.g. 01001001)
-#   - SETNUM: The observation set ID (the name of the directory containing the auxil, hk, event_l1, directories). Usually the same as $OBS unless the observation came in multiple parts (e.g. 01001099).
+#   - OBS: Observation ID. (e.g. 01001001). This should not end in 99
+#   - SETNUM: The observation set ID (the name of the directory containing the auxil, hk, event_l1, directories). Usually the same as $OBS unless the observation came in multiple parts (e.g. 01001099). This should end in 99.
 #   - CHUNK: Only necessary if you split the observation files into smaller chunks. If you did, you must create a source for each chunk, and each chunk's file should be named with a new ID. CHUNK should be the new obs ID, OBS should be the original ID, and SETNUM should be the original set number. E.g. if you split the 01001001 epoch of the observation set 01001099 into two chunks: 01001101 and 01001201, then CHUNK is 01001101 for the first source and 01001201 for the second source, OBS is 01001001, and SETNUM is 01001099.
 #   - VERSION: the vXX version number of these event_l1 fits files. Zero if you used split.sh. If the different detectors have different versions, use VERSION1, VERSION2, VERSION3. Do not use both VERSION and the numbered VERSION# variables.
 #   - ATTNUM: the version of the *_att_* files in the hk directory. Like VERSION, ATTNUM# are available if the version differs between detectors.
@@ -540,7 +540,30 @@ case $SOURCE in
         export SRC_DEC=22.0145000
         ;;
 
+    ss433_1)
+        export OBS='02006701'
+        export SETNUM=02006799
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=288.27799
+        export SRC_DEC=4.93573
+        ;;
+
+    ss433_2)
+        export OBS='02006702'
+        export SETNUM=02006799
+        export VERSION='01'
+        export ATTNUM='01'
+        export PAYNUM='01'
+        export PPGNUM='01'
+        export SRC_RA=288.27799
+        export SRC_DEC=4.93573
+        ;;
+
     *)
+
         echo "This source "$SOURCE" was not identified."
         ;;
 

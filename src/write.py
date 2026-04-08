@@ -5,6 +5,12 @@ import numpy as np
 in_file = sys.argv[1]
 nn_file = sys.argv[2]
 out_file = sys.argv[3]
+if sys.argv[4] == "yes":
+    use_energies = True
+elif sys.argv[4] == "no":
+    use_energies = False
+else:
+    raise Exception("You must pass yes or no to write.py, indicating whether NN energies should be used")
 
 # Files to cut the last event of
 cut_end_file = [
@@ -63,7 +69,9 @@ with fits.open(out_file, mode="update") as hdul:
     
     # Update old columns
     hdul[1].data["DETPHI2"] = nn_phi
-    hdul[1].data["PI"] = pi; print("Writing energies")
+    if use_energies:
+        hdul[1].data["PI"] = pi
+        print("Writing energies")
     hdul[1].data["ABSX"] = abs_x
     hdul[1].data["ABSY"] = abs_y
     if "STATUS2" in hdul[1].columns.names:
