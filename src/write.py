@@ -71,6 +71,7 @@ with fits.open(out_file, mode="update") as hdul:
     hdul[1].data["DETPHI2"] = nn_phi
     if use_energies:
         hdul[1].data["PI"] = pi
+        hdul[1].header["NN_ENERGIES"] = "F"
         print("Writing energies")
     hdul[1].data["ABSX"] = abs_x
     hdul[1].data["ABSY"] = abs_y
